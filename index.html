@@ -1,317 +1,858 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TRY WELL - 姿勢改善専門プライベートジム。姿勢から、人生をより豊かに。">
-    <title>TRY WELL | 姿勢改善専門プライベートジム</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRYWELL｜姿勢改善専門プライベートジム</title>
+<meta name="description" content="TRYWELLは姿勢改善に特化した完全個室のプライベートジム。猫背・巻き肩・反り腰など、あなたの姿勢の悩みに専門トレーナーがマンツーマンで向き合います。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1f3d33;
+  --green-dark:#16302a;
+  --gold:#b89b5e;
+  --gold-light:#d4bc8b;
+  --ivory:#f7f4ee;
+  --white:#ffffff;
+  --text:#2b2b2b;
+  --text-light:#6b6b6b;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Noto Sans JP',sans-serif;
+  color:var(--text);
+  background:var(--white);
+  line-height:1.9;
+  font-weight:400;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+.serif{font-family:'Zen Old Mincho',serif;}
+.en{font-family:'Montserrat',sans-serif;letter-spacing:.18em;}
+
+/* ---------- Header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;height:72px;
+  background:rgba(247,244,238,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(31,61,51,.08);
+  transition:box-shadow .3s;
+}
+header.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
+.logo{display:flex;flex-direction:column;line-height:1.3;}
+.logo .en{font-size:22px;font-weight:700;color:var(--green);letter-spacing:.22em;}
+.logo small{font-size:10px;color:var(--gold);letter-spacing:.25em;font-weight:500;}
+nav ul{display:flex;gap:34px;list-style:none;align-items:center;}
+nav a{font-size:13px;font-weight:500;color:var(--green);letter-spacing:.08em;position:relative;padding:6px 0;}
+nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .3s;}
+nav a:hover::after{width:100%;}
+.nav-cta{
+  background:var(--green);color:#fff !important;
+  padding:11px 26px;border-radius:2px;font-size:13px;letter-spacing:.1em;
+  transition:background .3s;
+}
+.nav-cta:hover{background:var(--gold);}
+.nav-cta::after{display:none;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;width:32px;height:24px;position:relative;z-index:110;}
+.hamburger span{position:absolute;left:0;width:100%;height:2px;background:var(--green);transition:.3s;}
+.hamburger span:nth-child(1){top:0;}
+.hamburger span:nth-child(2){top:11px;}
+.hamburger span:nth-child(3){top:22px;}
+.hamburger.open span:nth-child(1){top:11px;transform:rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){top:11px;transform:rotate(-45deg);}
+
+/* ---------- Hero ---------- */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  position:relative;
+  background:
+    linear-gradient(105deg, rgba(247,244,238,.97) 0%, rgba(247,244,238,.88) 45%, rgba(247,244,238,.25) 100%),
+    var(--ivory);
+  padding:120px 5% 80px;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse at 78% 45%, rgba(31,61,51,.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 75%, rgba(184,155,94,.14) 0%, transparent 50%),
+    var(--ivory);
+}
+.hero-figure{
+  position:absolute;right:4%;bottom:0;z-index:1;
+  width:min(44vw,560px);height:88%;
+  opacity:.9;
+}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;}
+.hero-label{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:12px;letter-spacing:.3em;color:var(--gold);font-weight:600;
+  margin-bottom:28px;
+}
+.hero-label::before{content:"";width:40px;height:1px;background:var(--gold);}
+.hero h1{
+  font-size:clamp(34px,5vw,60px);
+  font-weight:700;color:var(--green);
+  line-height:1.55;letter-spacing:.06em;
+  margin-bottom:28px;
+}
+.hero h1 .accent{color:var(--gold);}
+.hero p.lead{
+  font-size:clamp(14px,1.4vw,17px);color:var(--text-light);
+  max-width:520px;margin-bottom:44px;letter-spacing:.05em;
+}
+.hero-btns{display:flex;gap:18px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:18px 44px;font-size:14px;font-weight:600;letter-spacing:.12em;
+  border-radius:2px;transition:.3s;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 8px 24px rgba(31,61,51,.25);}
+.btn-primary:hover{background:var(--gold);transform:translateY(-2px);}
+.btn-outline{border:1px solid var(--green);color:var(--green);background:transparent;}
+.btn-outline:hover{background:var(--green);color:#fff;}
+.hero-scroll{
+  position:absolute;left:5%;bottom:36px;z-index:2;
+  font-size:10px;letter-spacing:.3em;color:var(--green);
+  display:flex;align-items:center;gap:14px;
+}
+.hero-scroll::after{content:"";width:60px;height:1px;background:var(--green);animation:scrollLine 2s infinite;}
+@keyframes scrollLine{0%{transform:scaleX(0);transform-origin:left;}50%{transform:scaleX(1);transform-origin:left;}51%{transform-origin:right;}100%{transform:scaleX(0);transform-origin:right;}}
+
+/* ---------- Section common ---------- */
+section{padding:110px 5%;}
+.container{max-width:1100px;margin:0 auto;}
+.sec-head{text-align:center;margin-bottom:64px;}
+.sec-head .en{display:block;font-size:12px;color:var(--gold);font-weight:600;letter-spacing:.3em;margin-bottom:14px;}
+.sec-head h2{font-size:clamp(26px,3.2vw,38px);color:var(--green);font-weight:700;letter-spacing:.08em;line-height:1.5;}
+.sec-head.light .en{color:var(--gold-light);}
+.sec-head.light h2{color:#fff;}
+.fade{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease;}
+.fade.visible{opacity:1;transform:none;}
+
+/* ---------- Concerns ---------- */
+.concerns{background:var(--ivory);}
+.concern-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;}
+.concern-card{
+  background:#fff;border-radius:4px;padding:36px 28px;
+  border-top:3px solid var(--gold);
+  box-shadow:0 4px 20px rgba(31,61,51,.06);
+  text-align:center;
+}
+.concern-card .icon{font-size:36px;margin-bottom:16px;}
+.concern-card h3{font-size:16px;color:var(--green);margin-bottom:10px;font-weight:700;letter-spacing:.05em;}
+.concern-card p{font-size:13px;color:var(--text-light);line-height:1.8;}
+.concern-msg{
+  text-align:center;margin-top:56px;
+  font-size:clamp(17px,2.2vw,24px);color:var(--green);font-weight:600;letter-spacing:.08em;line-height:2;
+}
+.concern-msg strong{color:var(--gold);font-weight:700;}
+
+/* ---------- Features ---------- */
+.feature{
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+  margin-bottom:96px;
+}
+.feature:last-child{margin-bottom:0;}
+.feature:nth-child(even) .feature-visual{order:2;}
+.feature-visual{
+  aspect-ratio:4/3;border-radius:4px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.feature-visual .num{
+  position:absolute;top:14px;left:20px;
+  font-family:'Montserrat',sans-serif;font-size:64px;font-weight:300;color:rgba(255,255,255,.5);
+  line-height:1;
+}
+.feature-text .en-label{font-size:11px;color:var(--gold);letter-spacing:.28em;font-weight:600;display:block;margin-bottom:14px;}
+.feature-text h3{font-size:clamp(20px,2.4vw,28px);color:var(--green);font-weight:700;line-height:1.6;margin-bottom:20px;letter-spacing:.05em;}
+.feature-text p{font-size:14px;color:var(--text-light);letter-spacing:.04em;}
+
+/* ---------- Flow ---------- */
+.flow{background:var(--green);position:relative;}
+.flow::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 15% 20%, rgba(184,155,94,.12) 0%, transparent 50%);
+}
+.flow .container{position:relative;}
+.flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.flow-step{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:4px;padding:38px 26px;position:relative;
+  transition:.3s;
+}
+.flow-step:hover{background:rgba(255,255,255,.09);transform:translateY(-4px);}
+.flow-step .step-num{font-family:'Montserrat',sans-serif;font-size:13px;color:var(--gold-light);letter-spacing:.2em;margin-bottom:16px;display:block;}
+.flow-step h3{font-size:17px;color:#fff;font-weight:700;margin-bottom:12px;letter-spacing:.05em;}
+.flow-step p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.9;}
+
+/* ---------- Price ---------- */
+.price{background:var(--ivory);}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;max-width:1000px;margin:0 auto;}
+.price-card{
+  background:#fff;border-radius:6px;padding:48px 36px;text-align:center;
+  box-shadow:0 6px 30px rgba(31,61,51,.07);
+  position:relative;display:flex;flex-direction:column;
+}
+.price-card.featured{border:2px solid var(--gold);transform:scale(1.03);}
+.price-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:#fff;font-size:11px;font-weight:700;
+  padding:5px 22px;border-radius:20px;letter-spacing:.15em;white-space:nowrap;
+}
+.price-card h3{font-size:15px;color:var(--green);font-weight:700;letter-spacing:.15em;margin-bottom:6px;}
+.price-card .plan-en{font-size:10px;color:var(--gold);letter-spacing:.25em;margin-bottom:26px;display:block;}
+.price-card .amount{font-family:'Montserrat','Noto Sans JP',sans-serif;font-size:44px;font-weight:600;color:var(--green);line-height:1;}
+.price-card .amount small{font-size:14px;font-weight:500;color:var(--text-light);}
+.price-card .tax{font-size:11px;color:var(--text-light);margin:8px 0 26px;}
+.price-card ul{list-style:none;text-align:left;margin-bottom:32px;flex:1;}
+.price-card li{
+  font-size:13px;color:var(--text);padding:10px 0 10px 26px;position:relative;
+  border-bottom:1px dashed rgba(31,61,51,.12);
+}
+.price-card li::before{content:"✓";position:absolute;left:2px;color:var(--gold);font-weight:700;}
+.price-note{text-align:center;font-size:12px;color:var(--text-light);margin-top:36px;}
+
+/* ---------- Voice ---------- */
+.voice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;}
+.voice-card{
+  background:var(--ivory);border-radius:6px;padding:40px 34px;position:relative;
+}
+.voice-card::before{
+  content:"“";font-family:'Zen Old Mincho',serif;font-size:70px;color:var(--gold);
+  position:absolute;top:6px;left:22px;line-height:1;opacity:.5;
+}
+.voice-card p{font-size:14px;color:var(--text);margin-bottom:22px;padding-top:24px;}
+.voice-meta{display:flex;align-items:center;gap:14px;}
+.voice-avatar{
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green) 0%,var(--gold) 100%);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;
+}
+.voice-meta .name{font-size:13px;font-weight:700;color:var(--green);}
+.voice-meta .attr{font-size:11px;color:var(--text-light);}
+.stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:4px;}
+
+/* ---------- Trainer ---------- */
+.trainer{background:var(--ivory);}
+.trainer-inner{display:grid;grid-template-columns:380px 1fr;gap:64px;align-items:center;max-width:1000px;margin:0 auto;}
+.trainer-photo{
+  aspect-ratio:3/4;border-radius:4px;overflow:hidden;position:relative;
+  background:linear-gradient(160deg,var(--green) 0%,var(--green-dark) 100%);
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.trainer-text .en-label{font-size:11px;color:var(--gold);letter-spacing:.28em;font-weight:600;display:block;margin-bottom:14px;}
+.trainer-text h3{font-size:26px;color:var(--green);font-weight:700;margin-bottom:4px;letter-spacing:.1em;}
+.trainer-text .role{font-size:12px;color:var(--text-light);letter-spacing:.1em;margin-bottom:24px;}
+.trainer-text p{font-size:14px;color:var(--text-light);margin-bottom:18px;}
+.trainer-quals{list-style:none;margin-top:22px;}
+.trainer-quals li{font-size:12px;color:var(--green);padding:6px 0 6px 22px;position:relative;}
+.trainer-quals li::before{content:"◆";position:absolute;left:0;color:var(--gold);font-size:9px;top:11px;}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:780px;margin:0 auto;}
+.faq-item{border-bottom:1px solid rgba(31,61,51,.14);}
+.faq-q{
+  width:100%;background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:26px 8px;text-align:left;
+  font-size:15px;font-weight:600;color:var(--green);letter-spacing:.04em;
+  font-family:'Noto Sans JP',sans-serif;line-height:1.7;
+}
+.faq-q .q-mark{color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:700;margin-right:6px;}
+.faq-q .toggle{
+  flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1px solid var(--gold);
+  position:relative;transition:.3s;
+}
+.faq-q .toggle::before,.faq-q .toggle::after{
+  content:"";position:absolute;top:50%;left:50%;background:var(--gold);transition:.3s;
+}
+.faq-q .toggle::before{width:12px;height:1.5px;transform:translate(-50%,-50%);}
+.faq-q .toggle::after{width:1.5px;height:12px;transform:translate(-50%,-50%);}
+.faq-item.open .toggle::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-a p{padding:0 8px 26px;font-size:14px;color:var(--text-light);}
+.faq-a .a-mark{color:var(--green);font-family:'Montserrat',sans-serif;font-weight:700;margin-right:6px;}
+
+/* ---------- Access ---------- */
+.access{background:var(--ivory);}
+.access-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.access-map{
+  aspect-ratio:4/3;border-radius:4px;background:#dfdcd4;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:13px;letter-spacing:.1em;
+}
+.access-table{width:100%;border-collapse:collapse;}
+.access-table th,.access-table td{
+  padding:16px 8px;font-size:14px;text-align:left;vertical-align:top;
+  border-bottom:1px solid rgba(31,61,51,.12);
+}
+.access-table th{color:var(--green);font-weight:700;width:110px;letter-spacing:.08em;white-space:nowrap;}
+.access-table td{color:var(--text-light);}
+
+/* ---------- CTA ---------- */
+.cta{
+  background:linear-gradient(120deg,var(--green-dark) 0%,var(--green) 100%);
+  text-align:center;position:relative;overflow:hidden;
+}
+.cta::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 20%, rgba(184,155,94,.18) 0%, transparent 55%);
+}
+.cta .container{position:relative;}
+.cta h2{font-size:clamp(24px,3.4vw,36px);color:#fff;font-weight:700;letter-spacing:.08em;line-height:1.7;margin-bottom:18px;}
+.cta p{color:rgba(255,255,255,.75);font-size:14px;margin-bottom:44px;letter-spacing:.05em;}
+.cta .btn-gold{
+  background:var(--gold);color:#fff;padding:20px 60px;font-size:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+.cta .btn-gold:hover{background:#c9ad72;transform:translateY(-2px);}
+.cta .tel{margin-top:34px;color:#fff;}
+.cta .tel .en{font-size:30px;font-weight:600;letter-spacing:.1em;}
+.cta .tel small{display:block;font-size:11px;color:rgba(255,255,255,.6);margin-top:6px;letter-spacing:.1em;}
+
+/* ---------- Contact ---------- */
+.contact-form{max-width:680px;margin:0 auto;}
+.form-group{margin-bottom:28px;}
+.form-group label{
+  display:block;font-size:13px;font-weight:600;color:var(--green);margin-bottom:10px;letter-spacing:.06em;
+}
+.req{background:var(--gold);color:#fff;font-size:10px;padding:2px 8px;border-radius:2px;margin-left:8px;font-weight:500;vertical-align:middle;}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;padding:15px 16px;font-size:14px;font-family:'Noto Sans JP',sans-serif;
+  border:1px solid rgba(31,61,51,.2);border-radius:3px;background:#fff;color:var(--text);
+  transition:border .3s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--gold);
+}
+.form-submit{text-align:center;margin-top:40px;}
+.form-note{font-size:11px;color:var(--text-light);text-align:center;margin-top:18px;}
+
+/* ---------- Footer ---------- */
+footer{background:var(--green-dark);padding:60px 5% 32px;color:rgba(255,255,255,.7);}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:36px;}
+.footer-logo .en{font-size:24px;font-weight:700;color:#fff;letter-spacing:.22em;display:block;}
+.footer-logo small{font-size:10px;color:var(--gold-light);letter-spacing:.25em;}
+.footer-nav{display:flex;gap:28px;flex-wrap:wrap;list-style:none;}
+.footer-nav a{font-size:12px;letter-spacing:.08em;transition:color .3s;}
+.footer-nav a:hover{color:var(--gold-light);}
+.copyright{text-align:center;font-size:11px;color:rgba(255,255,255,.4);margin-top:48px;letter-spacing:.1em;}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  nav{
+    position:fixed;inset:0;background:var(--ivory);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity .3s;z-index:105;
+  }
+  nav.open{opacity:1;pointer-events:auto;}
+  nav ul{flex-direction:column;gap:28px;text-align:center;}
+  nav a{font-size:16px;}
+  .hamburger{display:block;}
+  .hero-figure{opacity:.35;}
+  .feature{grid-template-columns:1fr;gap:32px;margin-bottom:72px;}
+  .feature:nth-child(even) .feature-visual{order:0;}
+  .flow-steps{grid-template-columns:1fr 1fr;}
+  .trainer-inner{grid-template-columns:1fr;gap:40px;}
+  .trainer-photo{max-width:340px;margin:0 auto;}
+  .access-inner{grid-template-columns:1fr;}
+  .price-card.featured{transform:none;}
+}
+@media (max-width:560px){
+  section{padding:80px 6%;}
+  .flow-steps{grid-template-columns:1fr;}
+  .hero-btns .btn{width:100%;}
+}
+</style>
 </head>
 <body>
-    <!-- ナビゲーションバー -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <h1>TRY WELL</h1>
-                    <p class="logo-subtitle">姿勢改善専門ジム</p>
-                </div>
-                <button class="menu-toggle" id="menuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home">ホーム</a></li>
-                    <li><a href="#about">理念</a></li>
-                    <li><a href="#services">サービス</a></li>
-                    <li><a href="#trainer">トレーナー</a></li>
-                    <li><a href="#access">アクセス</a></li>
-                    <li><a href="#contact" class="cta-button">お問い合わせ</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- ヒーローセクション -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h2 class="hero-catchphrase">姿勢から、人生をより豊かに。</h2>
-            <p class="hero-description">姿勢改善を通して、一人でも多くの人の健康と笑顔を創る。</p>
-            <a href="#contact" class="hero-cta">無料カウンセリングを予約</a>
-        </div>
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
-    </section>
+<header id="header">
+  <a href="#" class="logo">
+    <span class="en">TRYWELL</span>
+    <small>POSTURE PRIVATE GYM</small>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="nav">
+    <ul>
+      <li><a href="#concerns">お悩み</a></li>
+      <li><a href="#features">選ばれる理由</a></li>
+      <li><a href="#flow">ご利用の流れ</a></li>
+      <li><a href="#price">料金プラン</a></li>
+      <li><a href="#voice">お客様の声</a></li>
+      <li><a href="#access">アクセス</a></li>
+      <li><a href="#contact" class="nav-cta">無料体験を予約</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <!-- 企業理念セクション -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2 class="section-title">企業理念</h2>
-            <div class="philosophy-content">
-                <div class="philosophy-main">
-                    <p class="philosophy-text">
-                        姿勢が変われば、身体が変わる。<br>
-                        身体が変われば、心が変わる。<br>
-                        心が変われば、人生が変わる。
-                    </p>
-                </div>
-                
-                <div class="mission-vision">
-                    <div class="mv-card">
-                        <h3>Mission<span class="subtitle">使命</span></h3>
-                        <p>姿勢改善を通して、一人でも多くの人の健康と笑顔を創る。</p>
-                    </div>
-                    <div class="mv-card">
-                        <h3>Vision<span class="subtitle">目指す未来</span></h3>
-                        <p>誰もが健康で、自分らしく、生きがいを持って暮らせる社会をつくる。</p>
-                    </div>
-                </div>
+<!-- ===== Hero ===== -->
+<section class="hero" style="padding-left:5%;padding-right:5%;">
+  <div class="hero-bg"></div>
+  <svg class="hero-figure" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- abstract posture silhouette -->
+    <ellipse cx="200" cy="560" rx="150" ry="18" fill="rgba(31,61,51,.08)"/>
+    <path d="M200 90 a34 34 0 1 1 .1 0z" fill="#1f3d33" opacity=".85"/>
+    <path d="M200 130 C 196 180 194 240 196 300 C 197 350 198 420 192 470 L 178 555 L 196 555 L 206 480 L 214 480 L 222 555 L 240 555 L 228 468 C 222 415 224 350 226 300 C 228 240 226 180 222 130 Z" fill="#1f3d33" opacity=".85"/>
+    <path d="M199 150 C 170 170 150 210 148 250 L 162 254 C 166 220 180 190 200 175 Z" fill="#1f3d33" opacity=".7"/>
+    <path d="M223 150 C 252 170 270 212 272 252 L 258 256 C 254 222 242 190 222 175 Z" fill="#1f3d33" opacity=".7"/>
+    <line x1="90" y1="60" x2="90" y2="560" stroke="#b89b5e" stroke-width="1.5" stroke-dasharray="6 8" opacity=".8"/>
+    <line x1="310" y1="60" x2="310" y2="560" stroke="#b89b5e" stroke-width="1.5" stroke-dasharray="6 8" opacity=".8"/>
+    <circle cx="200" cy="90" r="52" stroke="#b89b5e" stroke-width="1" opacity=".55"/>
+  </svg>
+  <div class="hero-inner">
+    <span class="hero-label en">POSTURE PRIVATE GYM</span>
+    <h1 class="serif">姿勢が変われば、<br>人生の<span class="accent">景色</span>が変わる。</h1>
+    <p class="lead">TRYWELLは、猫背・巻き肩・反り腰などの姿勢の悩みに特化した完全個室のプライベートジム。国家資格を持つ専門トレーナーが、あなたの身体とマンツーマンで向き合います。</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary">無料体験・カウンセリングを予約する</a>
+      <a href="#features" class="btn btn-outline">TRYWELLの特徴を見る</a>
+    </div>
+  </div>
+  <div class="hero-scroll en">SCROLL</div>
+</section>
 
-                <div class="values">
-                    <h3 class="values-title">TRY WELLの3つのWELL</h3>
-                    <div class="values-grid">
-                        <div class="value-card">
-                            <div class="value-icon">💪</div>
-                            <h4>Wellness</h4>
-                            <p>身体の不調を改善し、生涯健康で動ける身体づくりを提供</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">✨</div>
-                            <h4>Well-being</h4>
-                            <p>姿勢や身体が変わることで自信を持ち、自分らしく挑戦できる毎日を支える</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">🤝</div>
-                            <h4>Welfare</h4>
-                            <p>運動を通して地域の健康づくりやスポーツ指導などにも貢献し、人と地域を元気にする</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- ===== Concerns ===== -->
+<section class="concerns" id="concerns">
+  <div class="container">
+    <div class="sec-head fade">
+      <span class="en">CONCERNS</span>
+      <h2 class="serif">こんなお悩み、ありませんか?</h2>
+    </div>
+    <div class="concern-grid">
+      <div class="concern-card fade">
+        <div class="icon">🪑</div>
+        <h3>デスクワークで猫背に</h3>
+        <p>長時間のPC作業で背中が丸まり、首や肩が常に重い。写真に写る自分の姿勢にがっかりする。</p>
+      </div>
+      <div class="concern-card fade">
+        <div class="icon">💢</div>
+        <h3>慢性的な肩こり・腰痛</h3>
+        <p>マッサージや整体に通ってもすぐ元通り。根本から改善したいけれど、何をすればいいかわからない。</p>
+      </div>
+      <div class="concern-card fade">
+        <div class="icon">🏋️</div>
+        <h3>ジムが続かない</h3>
+        <p>大手ジムに入会しても、正しいフォームがわからず効果を実感できないまま幽霊会員に。</p>
+      </div>
+      <div class="concern-card fade">
+        <div class="icon">👗</div>
+        <h3>見た目の印象を変えたい</h3>
+        <p>反り腰でお腹がぽっこり、巻き肩で老けて見える。姿勢のせいでスタイルが悪く見えてしまう。</p>
+      </div>
+    </div>
+    <p class="concern-msg fade serif">その不調、原因は「筋力不足」ではなく<br><strong>「姿勢のクセ」</strong>かもしれません。</p>
+  </div>
+</section>
+
+<!-- ===== Features ===== -->
+<section id="features">
+  <div class="container">
+    <div class="sec-head fade">
+      <span class="en">REASON</span>
+      <h2 class="serif">TRYWELLが選ばれる<span style="color:var(--gold);">3つの理由</span></h2>
+    </div>
+
+    <div class="feature fade">
+      <div class="feature-visual" style="background:linear-gradient(140deg,#1f3d33,#2e5546);">
+        <span class="num en">01</span>
+        <svg width="46%" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <circle cx="100" cy="100" r="78" stroke="#b89b5e" stroke-width="1.5" opacity=".7"/>
+          <line x1="100" y1="22" x2="100" y2="178" stroke="#b89b5e" stroke-width="1" stroke-dasharray="4 6"/>
+          <line x1="22" y1="100" x2="178" y2="100" stroke="#b89b5e" stroke-width="1" stroke-dasharray="4 6"/>
+          <path d="M100 45 a12 12 0 1 1 .1 0z" fill="#f7f4ee"/>
+          <path d="M100 62 C 98 90 98 120 97 145 L 92 172 h6 l4 -24 h2 l4 24 h6 l-5 -27 C 104 120 104 90 102 62 Z" fill="#f7f4ee"/>
+        </svg>
+      </div>
+      <div class="feature-text">
+        <span class="en-label en">POSTURE ANALYSIS</span>
+        <h3>姿勢分析 × 医学的知見に基づく<br>オーダーメイドプログラム</h3>
+        <p>初回に姿勢写真・可動域チェック・動作分析を実施し、あなたの姿勢タイプと不調の根本原因を特定。国家資格(柔道整復師・理学療法士)を持つトレーナーが、医学的知見に基づいた完全オーダーメイドのプログラムを設計します。</p>
+      </div>
+    </div>
+
+    <div class="feature fade">
+      <div class="feature-visual" style="background:linear-gradient(140deg,#b89b5e,#d4bc8b);">
+        <span class="num en">02</span>
+        <svg width="46%" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <rect x="35" y="35" width="130" height="130" rx="6" stroke="#fff" stroke-width="1.5" opacity=".85"/>
+          <path d="M60 130 L90 95 L115 115 L145 70" stroke="#1f3d33" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="145" cy="70" r="5" fill="#1f3d33"/>
+        </svg>
+      </div>
+      <div class="feature-text">
+        <span class="en-label en">PRIVATE SESSION</span>
+        <h3>完全個室・完全予約制の<br>マンツーマン指導</h3>
+        <p>セッションはすべて完全個室のプライベート空間で行うため、人目を気にせずトレーニングに集中できます。運動が苦手な方、ジム通いが初めての方も大歓迎。強度はその日の体調に合わせて細かく調整するので、無理なく続けられます。</p>
+      </div>
+    </div>
+
+    <div class="feature fade">
+      <div class="feature-visual" style="background:linear-gradient(140deg,#2b2b2b,#4a4a44);">
+        <span class="num en">03</span>
+        <svg width="46%" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <path d="M100 30 L120 75 L170 80 L133 112 L144 162 L100 136 L56 162 L67 112 L30 80 L80 75 Z" stroke="#b89b5e" stroke-width="1.5" fill="rgba(184,155,94,.15)"/>
+          <circle cx="100" cy="100" r="88" stroke="#b89b5e" stroke-width="1" stroke-dasharray="3 7" opacity=".6"/>
+        </svg>
+      </div>
+      <div class="feature-text">
+        <span class="en-label en">LIFETIME HABIT</span>
+        <h3>「通わなくても良い身体」を<br>ゴールにした習慣づくり</h3>
+        <p>私たちのゴールは、あなたがジムに依存せず、自分で姿勢を整えられるようになること。セルフケアの方法、デスク環境の整え方、日常動作のコツまで丁寧にお伝えし、LINEでの生活習慣サポートも行います。卒業後も美しい姿勢が続く身体へ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Flow ===== -->
+<section class="flow" id="flow">
+  <div class="container">
+    <div class="sec-head light fade">
+      <span class="en">FLOW</span>
+      <h2 class="serif">ご利用の流れ</h2>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step fade">
+        <span class="step-num en">STEP 01</span>
+        <h3>無料カウンセリング</h3>
+        <p>お悩みやご希望を丁寧にヒアリング。姿勢写真の撮影と簡易分析で、現在の姿勢タイプをその場でご説明します。</p>
+      </div>
+      <div class="flow-step fade">
+        <span class="step-num en">STEP 02</span>
+        <h3>体験セッション</h3>
+        <p>分析結果をもとに、実際のセッションを60分体験。身体の変化をその日のうちに実感していただけます。</p>
+      </div>
+      <div class="flow-step fade">
+        <span class="step-num en">STEP 03</span>
+        <h3>プログラム設計</h3>
+        <p>目標と生活スタイルに合わせて、通う頻度・期間・内容を完全オーダーメイドでご提案します。</p>
+      </div>
+      <div class="flow-step fade">
+        <span class="step-num en">STEP 04</span>
+        <h3>セッション開始</h3>
+        <p>マンツーマンセッションと生活習慣サポートで、理想の姿勢へ。定期的に姿勢を再分析し、変化を見える化します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Price ===== -->
+<section class="price" id="price">
+  <div class="container">
+    <div class="sec-head fade">
+      <span class="en">PRICE</span>
+      <h2 class="serif">料金プラン</h2>
+    </div>
+    <div class="price-grid">
+      <div class="price-card fade">
+        <h3>体験プラン</h3>
+        <span class="plan-en en">TRIAL</span>
+        <div class="amount">¥5,500<small> /回</small></div>
+        <p class="tax">(税込)</p>
+        <ul>
+          <li>カウンセリング + 姿勢分析</li>
+          <li>体験セッション 60分</li>
+          <li>姿勢改善プランのご提案</li>
+          <li>当日入会で体験料は全額キャッシュバック</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" style="width:100%;">体験を予約する</a>
+      </div>
+      <div class="price-card featured fade">
+        <span class="price-badge">いちばん人気</span>
+        <h3>月4回プラン</h3>
+        <span class="plan-en en">STANDARD</span>
+        <div class="amount">¥33,000<small> /月</small></div>
+        <p class="tax">(税込・週1回ペース)</p>
+        <ul>
+          <li>マンツーマンセッション 60分 × 月4回</li>
+          <li>毎回の姿勢チェック & 記録</li>
+          <li>LINEでの生活習慣サポート</li>
+          <li>セルフケアプログラムの処方</li>
+          <li>ウェア・タオル・水 無料</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="width:100%;">このプランで始める</a>
+      </div>
+      <div class="price-card fade">
+        <h3>月8回プラン</h3>
+        <span class="plan-en en">INTENSIVE</span>
+        <div class="amount">¥59,400<small> /月</small></div>
+        <p class="tax">(税込・週2回ペース)</p>
+        <ul>
+          <li>マンツーマンセッション 60分 × 月8回</li>
+          <li>毎回の姿勢チェック & 記録</li>
+          <li>LINEでの生活習慣サポート</li>
+          <li>月1回の姿勢再分析レポート</li>
+          <li>短期間でしっかり変えたい方に</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" style="width:100%;">このプランで始める</a>
+      </div>
+    </div>
+    <p class="price-note">※ 入会金 ¥11,000(税込)。体験当日のご入会で入会金は無料になります。<br>※ 表示価格・内容はサンプルです。実際の料金に合わせて変更してください。</p>
+  </div>
+</section>
+
+<!-- ===== Voice ===== -->
+<section id="voice">
+  <div class="container">
+    <div class="sec-head fade">
+      <span class="en">VOICE</span>
+      <h2 class="serif">お客様の声</h2>
+    </div>
+    <div class="voice-grid">
+      <div class="voice-card fade">
+        <p>初回の姿勢分析で「腰痛の原因は反り腰と股関節の硬さ」と説明され、目から鱗でした。3ヶ月で長年の腰痛がほとんど気にならなくなり、周りから「姿勢きれいだね」と言われるように。</p>
+        <div class="voice-meta">
+          <div class="voice-avatar">M</div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div class="name">M.S さん(30代・女性)</div>
+            <div class="attr">デスクワーク / 週1回・3ヶ月</div>
+          </div>
         </div>
-    </section>
-
-    <!-- サービスセクション -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2 class="section-title">サービス</h2>
-            <p class="section-subtitle">整えて身体を動かす - あなたの健康をサポートします</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h3>パーソナルトレーニング</h3>
-                    <p>一人ひとりの身体の状態に合わせた、完全オーダーメイドのトレーニングプログラムを提供します。</p>
-                    <ul class="service-features">
-                        <li>姿勢分析・評価</li>
-                        <li>個別トレーニング指導</li>
-                        <li>継続的なサポート</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🌿</div>
-                    <h3>タイ古式マッサージ</h3>
-                    <p>タイ古式ボディセラピストによる本格的な施術で、身体の緊張をほぐし、自然治癒力を高めます。</p>
-                    <ul class="service-features">
-                        <li>慢性疲労の改善</li>
-                        <li>柔軟性の向上</li>
-                        <li>ストレス緩和</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🍎</div>
-                    <h3>栄養アドバイス</h3>
-                    <p>食育栄養アドバイザーとして、運動・休養・栄養の三本柱から健康をトータルサポートします。</p>
-                    <ul class="service-features">
-                        <li>食事指導</li>
-                        <li>栄養バランス改善</li>
-                        <li>生活習慣アドバイス</li>
-                    </ul>
-                </div>
-            </div>
+      </div>
+      <div class="voice-card fade">
+        <p>大手ジムでは続かなかった自分でも、完全個室でトレーナーさんと二人三脚だと不思議と続きます。猫背が改善して呼吸が深くなり、仕事中の集中力まで上がった気がします。</p>
+        <div class="voice-meta">
+          <div class="voice-avatar">K</div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div class="name">K.T さん(40代・男性)</div>
+            <div class="attr">経営者 / 週1回・6ヶ月</div>
+          </div>
         </div>
-    </section>
-
-    <!-- トレーナー紹介セクション -->
-    <section id="trainer" class="trainer-section">
-        <div class="container">
-            <h2 class="section-title">トレーナー紹介</h2>
-            
-            <div class="trainer-profile">
-                <div class="trainer-image">
-                    <div class="trainer-placeholder">
-                        <span>👤</span>
-                    </div>
-                </div>
-                
-                <div class="trainer-info">
-                    <h3 class="trainer-name">山本 和樹</h3>
-                    <p class="trainer-title">パーソナルトレーナー / セラピスト / 正看護師</p>
-                    
-                    <div class="trainer-description">
-                        <p class="trainer-theme">
-                            <strong>テーマ:</strong> "整えて身体を動かす"<br>
-                            姿勢改善や慢性疲労、不調の改善を専門としています。
-                        </p>
-                        
-                        <div class="trainer-details">
-                            <h4>経歴</h4>
-                            <ul>
-                                <li>精神科看護師として医療現場で勤務</li>
-                                <li>高知大学教育学部附属中学校卒業</li>
-                                <li>高知学園高校（野球部）卒業</li>
-                                <li>高知学園短期大学看護学科卒業</li>
-                                <li>Thailand Chiengmai University 人体解剖実習参加（2023年、2025年）</li>
-                            </ul>
-                            
-                            <h4>資格・認定</h4>
-                            <ul class="credentials">
-                                <li>NSCA-CPT（全米ストレングス＆コンディショニング協会認定パーソナルトレーナー）</li>
-                                <li>正看護師</li>
-                                <li>食育栄養アドバイザー</li>
-                                <li>タイ古式ボディセラピスト（JTTMA）</li>
-                                <li>オンタイマッサージスクール認定講師</li>
-                            </ul>
-                            
-                            <h4>所属</h4>
-                            <p>Beginning fitness / 旅するタイ古式マッサージ</p>
-                            
-                            <div class="trainer-motto">
-                                <p><strong>モットー:</strong> 運動、休養、栄養の三本柱を大切に健康をサポート</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="voice-card fade">
+        <p>「ジムを卒業できる身体づくり」という考え方に共感して入会。教わったセルフケアを毎朝の習慣にできたことが一番の財産です。肩こりで頭痛薬を飲む回数が激減しました。</p>
+        <div class="voice-meta">
+          <div class="voice-avatar">Y</div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div class="name">Y.A さん(50代・女性)</div>
+            <div class="attr">主婦 / 週2回・4ヶ月</div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- アクセスセクション -->
-    <section id="access" class="access-section">
-        <div class="container">
-            <h2 class="section-title">アクセス</h2>
-            
-            <div class="access-content">
-                <div class="access-info">
-                    <div class="info-item">
-                        <h3>住所</h3>
-                        <p>〒780-0822<br>高知県高知市はりまや町２丁目６−１<br>グラン・はりまや町</p>
-                    </div>
-                    
-                    <div class="info-item">
-                        <h3>アクセス</h3>
-                        <p>はりまや橋駅より徒歩圏内<br>お車でお越しの際は、近隣のコインパーキングをご利用ください。</p>
-                    </div>
-                    
-                    <div class="info-item">
-                        <h3>営業時間</h3>
-                        <p>完全予約制<br>詳しくはお問い合わせください。</p>
-                    </div>
-                </div>
-                
-                <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3333.3!2d133.5311!3d33.5595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDMzJzM0LjIiTiAxMzPCsDMxJzUyLjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp" 
-                        width="100%" 
-                        height="400" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ===== Trainer ===== -->
+<section class="trainer">
+  <div class="container">
+    <div class="sec-head fade">
+      <span class="en">TRAINER</span>
+      <h2 class="serif">トレーナー紹介</h2>
+    </div>
+    <div class="trainer-inner fade">
+      <div class="trainer-photo">
+        <svg width="70%" viewBox="0 0 200 260" fill="none" aria-hidden="true">
+          <circle cx="100" cy="70" r="38" fill="rgba(247,244,238,.9)"/>
+          <path d="M100 118 C 60 118 38 150 34 200 L 34 260 L 166 260 L 166 200 C 162 150 140 118 100 118 Z" fill="rgba(247,244,238,.9)"/>
+        </svg>
+      </div>
+      <div class="trainer-text">
+        <span class="en-label en">HEAD TRAINER</span>
+        <h3 class="serif">山本 一樹</h3>
+        <p class="role">代表トレーナー / 柔道整復師</p>
+        <p>整骨院で延べ2万人以上の施術に携わる中で、「痛みを取るだけでは、身体は変わらない」という現実に直面。根本原因である姿勢と動作のクセにアプローチするため、姿勢改善専門ジムTRYWELLを設立しました。</p>
+        <p>「頑張るトレーニング」ではなく「身体が変わる楽しさ」を大切に、お一人おひとりのペースに寄り添います。運動が苦手な方こそ、ぜひ一度お越しください。</p>
+        <ul class="trainer-quals">
+          <li>柔道整復師(国家資格)</li>
+          <li>NSCA認定パーソナルトレーナー(NSCA-CPT)</li>
+          <li>姿勢改善指導歴 10年 / 指導実績 延べ2万人以上</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- お問い合わせセクション -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">お問い合わせ</h2>
-            <p class="section-subtitle">無料カウンセリング実施中！お気軽にご相談ください。</p>
-            
-            <div class="contact-content">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">お名前 <span class="required">*</span></label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">メールアドレス <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">電話番号</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">お問い合わせ内容 <span class="required">*</span></label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-button">送信する</button>
-                </form>
-                
-                <div class="contact-info-box">
-                    <h3>その他のお問い合わせ方法</h3>
-                    <p>お電話やLINEでもお問い合わせを承っております。</p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <span class="icon">📞</span>
-                            <p>お電話でのお問い合わせ<br><strong>準備中</strong></p>
-                        </div>
-                        <div class="contact-method">
-                            <span class="icon">💬</span>
-                            <p>LINEでのお問い合わせ<br><strong>準備中</strong></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-head fade">
+      <span class="en">FAQ</span>
+      <h2 class="serif">よくあるご質問</h2>
+    </div>
+    <div class="faq-list fade">
+      <div class="faq-item">
+        <button class="faq-q"><span><span class="q-mark">Q.</span>運動経験がまったくないのですが大丈夫ですか?</span><span class="toggle"></span></button>
+        <div class="faq-a"><p><span class="a-mark">A.</span>はい、まったく問題ありません。会員様の約7割は運動未経験からのスタートです。完全マンツーマンで、その日の体調に合わせて強度を調整しますので、ご自身のペースで無理なく続けられます。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span class="q-mark">Q.</span>どのくらいの期間で姿勢の変化を実感できますか?</span><span class="toggle"></span></button>
+        <div class="faq-a"><p><span class="a-mark">A.</span>個人差はありますが、多くの方が2〜3ヶ月(週1回ペース)で見た目の変化やこり・痛みの軽減を実感されています。初回とその後の姿勢写真を比較しながら、変化を見える化してお伝えします。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span class="q-mark">Q.</span>整体やマッサージとは何が違うのですか?</span><span class="toggle"></span></button>
+        <div class="faq-a"><p><span class="a-mark">A.</span>整体やマッサージは「その場で楽にする」ケアが中心ですが、TRYWELLは姿勢が崩れる根本原因(筋力バランス・動作のクセ)に運動でアプローチします。ご自身の力で良い姿勢を保てる身体づくりが目的です。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span class="q-mark">Q.</span>持ち物は必要ですか?仕事帰りでも通えますか?</span><span class="toggle"></span></button>
+        <div class="faq-a"><p><span class="a-mark">A.</span>ウェア・タオル・お水は無料でご用意していますので、手ぶらでお越しいただけます。完全予約制で夜は22時まで営業しており、仕事帰りの会員様も多くいらっしゃいます。</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span class="q-mark">Q.</span>通院中・痛みがある状態でも利用できますか?</span><span class="toggle"></span></button>
+        <div class="faq-a"><p><span class="a-mark">A.</span>国家資格を持つトレーナーが医学的知見に基づいて対応しますが、症状によっては医師の許可をお願いする場合があります。まずはカウンセリングで現在の状態をお聞かせください。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- フッター -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>TRY WELL</h3>
-                    <p class="footer-tagline">姿勢から、人生をより豊かに。</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>メニュー</h4>
-                    <ul>
-                        <li><a href="#home">ホーム</a></li>
-                        <li><a href="#about">理念</a></li>
-                        <li><a href="#services">サービス</a></li>
-                        <li><a href="#trainer">トレーナー</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>アクセス</h4>
-                    <p>〒780-0822<br>高知県高知市はりまや町２丁目６−１<br>グラン・はりまや町</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 TRY WELL. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+<!-- ===== Access ===== -->
+<section class="access" id="access">
+  <div class="container">
+    <div class="sec-head fade">
+      <span class="en">ACCESS</span>
+      <h2 class="serif">店舗情報・アクセス</h2>
+    </div>
+    <div class="access-inner fade">
+      <div class="access-map">
+        <span>Google マップ埋め込みエリア<br>(iframe を挿入してください)</span>
+      </div>
+      <table class="access-table">
+        <tr><th>店舗名</th><td>姿勢改善専門プライベートジム TRYWELL</td></tr>
+        <tr><th>住所</th><td>〒000-0000<br>東京都○○区○○ 1-2-3 ○○ビル 2F<br><small>※ サンプル表記です。実際の住所に変更してください。</small></td></tr>
+        <tr><th>アクセス</th><td>○○線「○○駅」徒歩3分</td></tr>
+        <tr><th>営業時間</th><td>平日 10:00 - 22:00 / 土日祝 9:00 - 19:00</td></tr>
+        <tr><th>定休日</th><td>不定休(完全予約制)</td></tr>
+        <tr><th>電話番号</th><td>00-0000-0000</td></tr>
+        <tr><th>支払方法</th><td>クレジットカード / 銀行振込 / 各種キャッシュレス決済</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="container fade">
+    <h2 class="serif">まずは、あなたの姿勢を<br>知ることから始めませんか?</h2>
+    <p>無料カウンセリングでは、姿勢分析の結果をその場でご説明します。<br>無理な勧誘は一切ありませんので、お気軽にお越しください。</p>
+    <a href="#contact" class="btn btn-gold">無料カウンセリングを予約する</a>
+    <div class="tel">
+      <span class="en">00-0000-0000</span>
+      <small>受付時間 10:00 - 22:00(セッション中は折り返しいたします)</small>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-head fade">
+      <span class="en">CONTACT</span>
+      <h2 class="serif">無料体験・お問い合わせ</h2>
+    </div>
+    <form class="contact-form fade" id="contactForm">
+      <div class="form-group">
+        <label>お名前<span class="req">必須</span></label>
+        <input type="text" name="name" placeholder="山田 太郎" required>
+      </div>
+      <div class="form-group">
+        <label>メールアドレス<span class="req">必須</span></label>
+        <input type="email" name="email" placeholder="example@email.com" required>
+      </div>
+      <div class="form-group">
+        <label>電話番号</label>
+        <input type="tel" name="tel" placeholder="090-0000-0000">
+      </div>
+      <div class="form-group">
+        <label>ご希望の内容<span class="req">必須</span></label>
+        <select name="type" required>
+          <option value="">選択してください</option>
+          <option>無料カウンセリングを予約したい</option>
+          <option>体験セッションを予約したい</option>
+          <option>料金について詳しく知りたい</option>
+          <option>その他のお問い合わせ</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>お悩み・ご質問など</label>
+        <textarea name="message" rows="5" placeholder="例)長年の猫背と肩こりに悩んでいます。運動経験はほとんどありません。"></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary" style="min-width:280px;">送信する</button>
+        <p class="form-note">※ このフォームはデモです。実際の送信先(フォームサービスやメール)に接続してください。</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <span class="en">TRYWELL</span>
+      <small>POSTURE PRIVATE GYM</small>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="#concerns">お悩み</a></li>
+      <li><a href="#features">選ばれる理由</a></li>
+      <li><a href="#flow">ご利用の流れ</a></li>
+      <li><a href="#price">料金プラン</a></li>
+      <li><a href="#voice">お客様の声</a></li>
+      <li><a href="#faq">よくあるご質問</a></li>
+      <li><a href="#access">アクセス</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+  </div>
+  <p class="copyright en">&copy; 2026 TRYWELL All Rights Reserved.</p>
+</footer>
+
+<script>
+// header shadow
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// mobile nav
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  nav.classList.toggle('open');
+});
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  nav.classList.remove('open');
+}));
+
+// scroll fade-in
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.toggle('open');
+    a.style.maxHeight = isOpen ? a.scrollHeight + 'px' : 0;
+  });
+});
+
+// demo form
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  alert('送信ありがとうございます。\n(デモのため実際には送信されません。フォームサービス等に接続してください)');
+});
+</script>
 </body>
 </html>
