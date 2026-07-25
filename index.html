@@ -178,6 +178,19 @@ section{padding:110px 5%;}
 }
 .concern-msg strong{color:var(--gold);font-weight:700;}
 
+/* ---------- About / Philosophy ---------- */
+.about-lead{text-align:center;max-width:640px;margin:-32px auto 56px;font-size:15px;color:var(--text-light);letter-spacing:.05em;line-height:2;}
+.about-three{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:64px;}
+.about-item{border-top:3px solid var(--accent);background:var(--ivory);border-radius:4px;padding:32px 24px;text-align:center;}
+.about-item h3{font-size:19px;font-weight:700;color:var(--accent);letter-spacing:.06em;margin-bottom:14px;}
+.about-item p{font-size:13px;color:var(--text-light);line-height:1.9;}
+.about-divider{border:none;border-top:1px solid rgba(23,58,99,.14);width:80px;margin:0 auto 56px;}
+.about-body{max-width:680px;margin:0 auto 56px;}
+.about-body p{font-size:14px;color:var(--text-light);margin-bottom:24px;letter-spacing:.03em;}
+.about-body p:last-child{margin-bottom:0;}
+.about-body strong{color:var(--ink);font-weight:700;}
+.about-closing{text-align:center;font-size:clamp(18px,2.2vw,25px);color:var(--ink);font-weight:600;line-height:2;letter-spacing:.06em;}
+
 /* ---------- Features ---------- */
 .feature{
   display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
@@ -383,6 +396,7 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
   nav a{font-size:16px;}
   .hamburger{display:block;}
   .hero-figure{opacity:.35;}
+  .about-three{grid-template-columns:1fr;}
   .feature{grid-template-columns:1fr;gap:32px;margin-bottom:72px;}
   .feature:nth-child(even) .feature-visual{order:0;}
   .flow-steps{grid-template-columns:1fr 1fr;}
@@ -449,6 +463,42 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
     </div>
   </div>
   <div class="hero-scroll en">SCROLL</div>
+</section>
+
+<!-- ===== About ===== -->
+<section id="about">
+  <div class="container">
+    <div class="sec-head fade">
+      <span class="en">ABOUT TRY WELL</span>
+      <h2 class="serif">姿勢が変わる。毎日が変わる。<br>人生が変わる。</h2>
+    </div>
+    <p class="about-lead fade">TRY WELL(トライウェル)には、「挑戦(TRY)」を通して、3つの&quot;WELL&quot;を届けたいという想いを込めています。</p>
+    <div class="about-three fade">
+      <div class="about-item" style="--accent:var(--leaf);">
+        <h3 class="en">Wellness</h3>
+        <p>健康な身体を育み、毎日を元気に過ごせること。</p>
+      </div>
+      <div class="about-item" style="--accent:var(--green);">
+        <h3 class="en">Well-being</h3>
+        <p>自分らしく、心豊かに人生を歩んでいけること。</p>
+      </div>
+      <div class="about-item" style="--accent:var(--gold);">
+        <h3 class="en">Welfare</h3>
+        <p>人とのつながりを大切にし、誰もが安心して健康で幸せに暮らせる地域や社会に貢献すること。</p>
+      </div>
+    </div>
+    <hr class="about-divider fade">
+    <div class="about-body fade">
+      <p>私たちは、身体を整えることは、人生をより豊かにする第一歩だと考えています。</p>
+      <p>肩こりや腰痛などの不調、姿勢の崩れ、思うように動けない身体。それらは日々の生活の質だけでなく、「やりたいことに挑戦する気持ち」にも影響を与えます。</p>
+      <p>TRY WELLでは、姿勢改善のために<strong>「整える」と「動かす」</strong>ことを大切にしています。</p>
+      <p>整体だけでも、運動だけでも十分とは言えません。身体の状態を整え、その状態を維持できる身体へと育てていくことで、本来の機能を引き出し、より快適な毎日へとつながっていきます。</p>
+      <p>一人ひとりの身体や生活に合わせて、パーソナルトレーニングとタイ古式マッサージを組み合わせながら、その時々に最適なサポートをご提供します。</p>
+      <p>TRY WELLが目指すのは、姿勢を改善することだけではありません。</p>
+      <p>身体が変わることで自信が生まれ、毎日が少し前向きになり、新しいことに挑戦したくなる。そんな「人生がより豊かになるきっかけ」を届けられる場所でありたいと考えています。</p>
+    </div>
+    <p class="about-closing serif fade">あなたの「変わりたい」を、「変われた」に。<br>その一歩を、TRY WELLが全力でサポートします。</p>
+  </div>
 </section>
 
 <!-- ===== Concerns ===== -->
