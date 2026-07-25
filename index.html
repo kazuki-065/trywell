@@ -10,11 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --green:#1f3d33;
-  --green-dark:#16302a;
-  --gold:#b89b5e;
-  --gold-light:#d4bc8b;
-  --ivory:#f7f4ee;
+  --green:#1e5fa8;      /* brand blue: primary */
+  --green-dark:#154a86;
+  --gold:#f0a500;       /* brand orange: accent */
+  --gold-light:#ffc84a;
+  --leaf:#57a331;       /* brand green */
+  --ivory:#f4f8fb;
   --white:#ffffff;
   --text:#2b2b2b;
   --text-light:#6b6b6b;
@@ -41,7 +42,7 @@ header{
   padding:0 5%;height:72px;
   background:rgba(247,244,238,.92);
   backdrop-filter:blur(8px);
-  border-bottom:1px solid rgba(31,61,51,.08);
+  border-bottom:1px solid rgba(23,58,99,.08);
   transition:box-shadow .3s;
 }
 header.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
@@ -82,8 +83,8 @@ nav a:hover::after{width:100%;}
 .hero-bg{
   position:absolute;inset:0;z-index:0;
   background:
-    radial-gradient(ellipse at 78% 45%, rgba(31,61,51,.10) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 75%, rgba(184,155,94,.14) 0%, transparent 50%),
+    radial-gradient(ellipse at 78% 45%, rgba(30,95,168,.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 75%, rgba(240,165,0,.16) 0%, transparent 50%),
     var(--ivory);
 }
 .hero-figure{
@@ -109,13 +110,15 @@ nav a:hover::after{width:100%;}
   font-size:clamp(14px,1.4vw,17px);color:var(--text-light);
   max-width:520px;margin-bottom:44px;letter-spacing:.05em;
 }
+.hero-tagline{font-size:12px;font-weight:700;letter-spacing:.22em;margin:-26px 0 38px;}
+.hero-tagline .dot{color:var(--text-light);}
 .hero-btns{display:flex;gap:18px;flex-wrap:wrap;}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
   padding:18px 44px;font-size:14px;font-weight:600;letter-spacing:.12em;
   border-radius:2px;transition:.3s;cursor:pointer;border:none;
 }
-.btn-primary{background:var(--green);color:#fff;box-shadow:0 8px 24px rgba(31,61,51,.25);}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 8px 24px rgba(23,58,99,.25);}
 .btn-primary:hover{background:var(--gold);transform:translateY(-2px);}
 .btn-outline{border:1px solid var(--green);color:var(--green);background:transparent;}
 .btn-outline:hover{background:var(--green);color:#fff;}
@@ -144,12 +147,16 @@ section{padding:110px 5%;}
 .concern-card{
   background:#fff;border-radius:4px;padding:36px 28px;
   border-top:3px solid var(--gold);
-  box-shadow:0 4px 20px rgba(31,61,51,.06);
+  box-shadow:0 4px 20px rgba(23,58,99,.06);
   text-align:center;
 }
 .concern-card .icon{font-size:36px;margin-bottom:16px;}
 .concern-card h3{font-size:16px;color:var(--green);margin-bottom:10px;font-weight:700;letter-spacing:.05em;}
 .concern-card p{font-size:13px;color:var(--text-light);line-height:1.8;}
+.concern-grid .concern-card:nth-child(4n+1){border-top-color:var(--leaf);}
+.concern-grid .concern-card:nth-child(4n+2){border-top-color:var(--green);}
+.concern-grid .concern-card:nth-child(4n+3){border-top-color:var(--gold);}
+.concern-grid .concern-card:nth-child(4n+4){border-top-color:var(--leaf);}
 .concern-msg{
   text-align:center;margin-top:56px;
   font-size:clamp(17px,2.2vw,24px);color:var(--green);font-weight:600;letter-spacing:.08em;line-height:2;
@@ -180,7 +187,7 @@ section{padding:110px 5%;}
 .flow{background:var(--green);position:relative;}
 .flow::before{
   content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse at 15% 20%, rgba(184,155,94,.12) 0%, transparent 50%);
+  background:radial-gradient(ellipse at 15% 20%, rgba(240,165,0,.14) 0%, transparent 50%);
 }
 .flow .container{position:relative;}
 .flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
@@ -200,7 +207,7 @@ section{padding:110px 5%;}
 .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;max-width:1000px;margin:0 auto;}
 .price-card{
   background:#fff;border-radius:6px;padding:48px 36px;text-align:center;
-  box-shadow:0 6px 30px rgba(31,61,51,.07);
+  box-shadow:0 6px 30px rgba(23,58,99,.07);
   position:relative;display:flex;flex-direction:column;
 }
 .price-card.featured{border:2px solid var(--gold);transform:scale(1.03);}
@@ -217,7 +224,7 @@ section{padding:110px 5%;}
 .price-card ul{list-style:none;text-align:left;margin-bottom:32px;flex:1;}
 .price-card li{
   font-size:13px;color:var(--text);padding:10px 0 10px 26px;position:relative;
-  border-bottom:1px dashed rgba(31,61,51,.12);
+  border-bottom:1px dashed rgba(23,58,99,.12);
 }
 .price-card li::before{content:"✓";position:absolute;left:2px;color:var(--gold);font-weight:700;}
 .price-note{text-align:center;font-size:12px;color:var(--text-light);margin-top:36px;}
@@ -261,7 +268,7 @@ section{padding:110px 5%;}
 
 /* ---------- FAQ ---------- */
 .faq-list{max-width:780px;margin:0 auto;}
-.faq-item{border-bottom:1px solid rgba(31,61,51,.14);}
+.faq-item{border-bottom:1px solid rgba(23,58,99,.14);}
 .faq-q{
   width:100%;background:none;border:none;cursor:pointer;
   display:flex;align-items:center;justify-content:space-between;gap:20px;
@@ -294,7 +301,7 @@ section{padding:110px 5%;}
 .access-table{width:100%;border-collapse:collapse;}
 .access-table th,.access-table td{
   padding:16px 8px;font-size:14px;text-align:left;vertical-align:top;
-  border-bottom:1px solid rgba(31,61,51,.12);
+  border-bottom:1px solid rgba(23,58,99,.12);
 }
 .access-table th{color:var(--green);font-weight:700;width:110px;letter-spacing:.08em;white-space:nowrap;}
 .access-table td{color:var(--text-light);}
@@ -306,7 +313,7 @@ section{padding:110px 5%;}
 }
 .cta::before{
   content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse at 80% 20%, rgba(184,155,94,.18) 0%, transparent 55%);
+  background:radial-gradient(ellipse at 80% 20%, rgba(240,165,0,.20) 0%, transparent 55%);
 }
 .cta .container{position:relative;}
 .cta h2{font-size:clamp(24px,3.4vw,36px);color:#fff;font-weight:700;letter-spacing:.08em;line-height:1.7;margin-bottom:18px;}
@@ -329,7 +336,7 @@ section{padding:110px 5%;}
 .req{background:var(--gold);color:#fff;font-size:10px;padding:2px 8px;border-radius:2px;margin-left:8px;font-weight:500;vertical-align:middle;}
 .form-group input,.form-group select,.form-group textarea{
   width:100%;padding:15px 16px;font-size:14px;font-family:'Noto Sans JP',sans-serif;
-  border:1px solid rgba(31,61,51,.2);border-radius:3px;background:#fff;color:var(--text);
+  border:1px solid rgba(23,58,99,.2);border-radius:3px;background:#fff;color:var(--text);
   transition:border .3s;
 }
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{
@@ -403,19 +410,20 @@ footer{background:var(--green-dark);padding:60px 5% 32px;color:rgba(255,255,255,
   <div class="hero-bg"></div>
   <svg class="hero-figure" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <!-- abstract posture silhouette -->
-    <ellipse cx="200" cy="560" rx="150" ry="18" fill="rgba(31,61,51,.08)"/>
-    <path d="M200 90 a34 34 0 1 1 .1 0z" fill="#1f3d33" opacity=".85"/>
-    <path d="M200 130 C 196 180 194 240 196 300 C 197 350 198 420 192 470 L 178 555 L 196 555 L 206 480 L 214 480 L 222 555 L 240 555 L 228 468 C 222 415 224 350 226 300 C 228 240 226 180 222 130 Z" fill="#1f3d33" opacity=".85"/>
-    <path d="M199 150 C 170 170 150 210 148 250 L 162 254 C 166 220 180 190 200 175 Z" fill="#1f3d33" opacity=".7"/>
-    <path d="M223 150 C 252 170 270 212 272 252 L 258 256 C 254 222 242 190 222 175 Z" fill="#1f3d33" opacity=".7"/>
-    <line x1="90" y1="60" x2="90" y2="560" stroke="#b89b5e" stroke-width="1.5" stroke-dasharray="6 8" opacity=".8"/>
-    <line x1="310" y1="60" x2="310" y2="560" stroke="#b89b5e" stroke-width="1.5" stroke-dasharray="6 8" opacity=".8"/>
-    <circle cx="200" cy="90" r="52" stroke="#b89b5e" stroke-width="1" opacity=".55"/>
+    <ellipse cx="200" cy="560" rx="150" ry="18" fill="rgba(23,58,99,.08)"/>
+    <path d="M200 90 a34 34 0 1 1 .1 0z" fill="#1e5fa8" opacity=".85"/>
+    <path d="M200 130 C 196 180 194 240 196 300 C 197 350 198 420 192 470 L 178 555 L 196 555 L 206 480 L 214 480 L 222 555 L 240 555 L 228 468 C 222 415 224 350 226 300 C 228 240 226 180 222 130 Z" fill="#1e5fa8" opacity=".85"/>
+    <path d="M199 150 C 170 170 150 210 148 250 L 162 254 C 166 220 180 190 200 175 Z" fill="#1e5fa8" opacity=".7"/>
+    <path d="M223 150 C 252 170 270 212 272 252 L 258 256 C 254 222 242 190 222 175 Z" fill="#1e5fa8" opacity=".7"/>
+    <line x1="90" y1="60" x2="90" y2="560" stroke="#f0a500" stroke-width="1.5" stroke-dasharray="6 8" opacity=".8"/>
+    <line x1="310" y1="60" x2="310" y2="560" stroke="#f0a500" stroke-width="1.5" stroke-dasharray="6 8" opacity=".8"/>
+    <circle cx="200" cy="90" r="52" stroke="#f0a500" stroke-width="1" opacity=".55"/>
   </svg>
   <div class="hero-inner">
     <span class="hero-label en">POSTURE PRIVATE GYM</span>
     <h1 class="serif">姿勢が変われば、<br>人生の<span class="accent">景色</span>が変わる。</h1>
     <p class="lead">TRY WELLは、猫背・巻き肩・反り腰などの姿勢の悩みに特化した完全個室のプライベートジム。国家資格を持つ専門トレーナーが、あなたの身体とマンツーマンで向き合います。</p>
+    <p class="hero-tagline en"><span style="color:var(--leaf);">WELLNESS</span><span class="dot">・</span><span style="color:var(--green);">WELL-BEING</span><span class="dot">・</span><span style="color:var(--gold);">WELFARE</span></p>
     <div class="hero-btns">
       <a href="#contact" class="btn btn-primary">体験・カウンセリングを予約する</a>
       <a href="#features" class="btn btn-outline">TRY WELLの特徴を見る</a>
@@ -466,12 +474,12 @@ footer{background:var(--green-dark);padding:60px 5% 32px;color:rgba(255,255,255,
     </div>
 
     <div class="feature fade">
-      <div class="feature-visual" style="background:linear-gradient(140deg,#1f3d33,#2e5546);">
+      <div class="feature-visual" style="background:linear-gradient(140deg,#4f9727,#6cb43c);">
         <span class="num en">01</span>
         <svg width="46%" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-          <circle cx="100" cy="100" r="78" stroke="#b89b5e" stroke-width="1.5" opacity=".7"/>
-          <line x1="100" y1="22" x2="100" y2="178" stroke="#b89b5e" stroke-width="1" stroke-dasharray="4 6"/>
-          <line x1="22" y1="100" x2="178" y2="100" stroke="#b89b5e" stroke-width="1" stroke-dasharray="4 6"/>
+          <circle cx="100" cy="100" r="78" stroke="rgba(255,255,255,.75)" stroke-width="1.5" opacity=".9"/>
+          <line x1="100" y1="22" x2="100" y2="178" stroke="rgba(255,255,255,.6)" stroke-width="1" stroke-dasharray="4 6"/>
+          <line x1="22" y1="100" x2="178" y2="100" stroke="rgba(255,255,255,.6)" stroke-width="1" stroke-dasharray="4 6"/>
           <path d="M100 45 a12 12 0 1 1 .1 0z" fill="#f7f4ee"/>
           <path d="M100 62 C 98 90 98 120 97 145 L 92 172 h6 l4 -24 h2 l4 24 h6 l-5 -27 C 104 120 104 90 102 62 Z" fill="#f7f4ee"/>
         </svg>
@@ -484,12 +492,12 @@ footer{background:var(--green-dark);padding:60px 5% 32px;color:rgba(255,255,255,
     </div>
 
     <div class="feature fade">
-      <div class="feature-visual" style="background:linear-gradient(140deg,#b89b5e,#d4bc8b);">
+      <div class="feature-visual" style="background:linear-gradient(140deg,#1e5fa8,#4a86c8);">
         <span class="num en">02</span>
         <svg width="46%" viewBox="0 0 200 200" fill="none" aria-hidden="true">
           <rect x="35" y="35" width="130" height="130" rx="6" stroke="#fff" stroke-width="1.5" opacity=".85"/>
-          <path d="M60 130 L90 95 L115 115 L145 70" stroke="#1f3d33" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <circle cx="145" cy="70" r="5" fill="#1f3d33"/>
+          <path d="M60 130 L90 95 L115 115 L145 70" stroke="#ffc84a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="145" cy="70" r="5" fill="#ffc84a"/>
         </svg>
       </div>
       <div class="feature-text">
@@ -500,11 +508,11 @@ footer{background:var(--green-dark);padding:60px 5% 32px;color:rgba(255,255,255,
     </div>
 
     <div class="feature fade">
-      <div class="feature-visual" style="background:linear-gradient(140deg,#2b2b2b,#4a4a44);">
+      <div class="feature-visual" style="background:linear-gradient(140deg,#e89c00,#f6c34a);">
         <span class="num en">03</span>
         <svg width="46%" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-          <path d="M100 30 L120 75 L170 80 L133 112 L144 162 L100 136 L56 162 L67 112 L30 80 L80 75 Z" stroke="#b89b5e" stroke-width="1.5" fill="rgba(184,155,94,.15)"/>
-          <circle cx="100" cy="100" r="88" stroke="#b89b5e" stroke-width="1" stroke-dasharray="3 7" opacity=".6"/>
+          <path d="M100 30 L120 75 L170 80 L133 112 L144 162 L100 136 L56 162 L67 112 L30 80 L80 75 Z" stroke="#fff" stroke-width="1.5" fill="rgba(255,255,255,.25)"/>
+          <circle cx="100" cy="100" r="88" stroke="#fff" stroke-width="1" stroke-dasharray="3 7" opacity=".6"/>
         </svg>
       </div>
       <div class="feature-text">
@@ -799,7 +807,7 @@ footer{background:var(--green-dark);padding:60px 5% 32px;color:rgba(255,255,255,
       </div>
       <div class="form-submit">
         <button type="submit" class="btn btn-primary" style="min-width:280px;">送信する</button>
-        <p class="form-note">※ このフォームはデモです。実際の送信先(フォームサービスやメール)に接続してください。</p>
+        <p class="form-note">※ フォームは現在準備中です。ご予約・お問い合わせはお電話(<a href="tel:080-4030-0089" style="text-decoration:underline;">080-4030-0089</a>)にてお願いいたします。</p>
       </div>
     </form>
   </div>
@@ -809,7 +817,7 @@ footer{background:var(--green-dark);padding:60px 5% 32px;color:rgba(255,255,255,
   <div class="footer-inner">
     <div class="footer-logo">
       <span class="en">TRY WELL</span>
-      <small>WELLNESS・WELL-BEING・WELFARE</small>
+      <small><span style="color:#8fd06b;">WELLNESS</span>・<span style="color:#8ab4e4;">WELL-BEING</span>・<span style="color:#ffd063;">WELFARE</span></small>
     </div>
     <ul class="footer-nav">
       <li><a href="#concerns">お悩み</a></li>
@@ -868,7 +876,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 // demo form
 document.getElementById('contactForm').addEventListener('submit', e => {
   e.preventDefault();
-  alert('送信ありがとうございます。\n(デモのため実際には送信されません。フォームサービス等に接続してください)');
+  alert('申し訳ありません。フォームは現在準備中です。\nご予約・お問い合わせはお電話(080-4030-0089)にてお願いいたします。');
 });
 </script>
 </body>
