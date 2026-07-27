@@ -107,7 +107,7 @@ nav a:hover::after{width:100%;}
   width:min(44vw,560px);height:88%;
   opacity:.9;
 }
-.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;text-align:center;}
 .hero-label{
   display:inline-flex;align-items:center;gap:12px;
   font-size:12px;letter-spacing:.3em;color:var(--gold);font-weight:600;
@@ -123,11 +123,12 @@ nav a:hover::after{width:100%;}
 .hero h1 .accent{color:var(--gold);}
 .hero p.lead{
   font-size:clamp(14px,1.4vw,17px);color:var(--text-light);
-  max-width:520px;margin-bottom:44px;letter-spacing:.05em;
+  max-width:560px;margin:0 auto 44px;letter-spacing:.05em;
+  line-break:strict;
 }
 .hero-tagline{font-size:12px;font-weight:700;letter-spacing:.22em;margin:-26px 0 38px;}
 .hero-tagline .dot{color:var(--text-light);}
-.hero-btns{display:flex;gap:18px;flex-wrap:wrap;}
+.hero-btns{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
   padding:18px 44px;font-size:14px;font-weight:600;letter-spacing:.12em;
@@ -747,8 +748,8 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
         <p>運動、休養、栄養の三本柱を大切に目の前の方の健康をサポートしていきます。</p>
         <p class="trainer-sub">【経歴】</p>
         <ul class="trainer-quals">
-          <li>高知大学教育学部附属中学校(野球部)</li>
-          <li>高知学園高等学校(野球部)</li>
+          <li>高知大学教育学部附属中学校</li>
+          <li>高知学園高等学校</li>
           <li>高知学園短期大学看護学科6期生</li>
           <li>高知市内の病院勤務</li>
           <li>Beginning fitness(現職)</li>
@@ -821,6 +822,7 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
         <tr><th>営業時間</th><td>10:00 - 22:00</td></tr>
         <tr><th>定休日</th><td>不定休(完全予約制)</td></tr>
         <tr><th>電話番号</th><td><a href="tel:080-4030-0089">080-4030-0089</a></td></tr>
+        <tr><th>メール</th><td><a href="mailto:trywell.kochi@gmail.com">trywell.kochi@gmail.com</a></td></tr>
         <tr><th>支払方法</th><td>クレジットカード / 銀行振込 / 各種キャッシュレス決済</td></tr>
       </table>
     </div>
@@ -876,7 +878,7 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
       </div>
       <div class="form-submit">
         <button type="submit" class="btn btn-primary" style="min-width:280px;">送信する</button>
-        <p class="form-note">※ フォームは現在準備中です。ご予約・お問い合わせはお電話(<a href="tel:080-4030-0089" style="text-decoration:underline;">080-4030-0089</a>)にてお願いいたします。</p>
+        <p class="form-note">※ フォームは現在準備中です。ご予約・お問い合わせはお電話(<a href="tel:080-4030-0089" style="text-decoration:underline;">080-4030-0089</a>)またはメール(<a href="mailto:trywell.kochi@gmail.com" style="text-decoration:underline;">trywell.kochi@gmail.com</a>)にてお願いいたします。</p>
       </div>
     </form>
   </div>
