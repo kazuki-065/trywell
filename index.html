@@ -257,6 +257,17 @@ section{padding:110px 5%;}
 }
 .price-card li::before{content:"✓";position:absolute;left:2px;color:var(--gold);font-weight:700;}
 .price-note{text-align:center;font-size:12px;color:var(--text-light);margin-top:36px;}
+.price-sub{max-width:1000px;margin:76px auto 0;padding-top:56px;border-top:1px solid rgba(23,58,99,.12);}
+.price-sub-head{text-align:center;margin-bottom:36px;}
+.price-sub-head .en{display:block;font-size:11px;color:var(--gold);letter-spacing:.28em;font-weight:600;margin-bottom:10px;}
+.price-sub-head h3{font-size:clamp(19px,2.4vw,24px);color:var(--ink);font-weight:700;letter-spacing:.06em;margin-bottom:12px;}
+.price-sub-head p{font-size:13px;color:var(--text-light);letter-spacing:.03em;}
+.price-mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:36px;}
+.price-mini-card{background:var(--ivory);border-radius:4px;padding:28px 20px;text-align:center;}
+.price-mini-card .time{display:block;font-size:13px;color:var(--text-light);letter-spacing:.1em;margin-bottom:10px;}
+.price-mini-card .amount{font-family:'Montserrat','Noto Sans JP',sans-serif;font-size:30px;font-weight:600;color:var(--ink);}
+.price-mini-card .amount small{font-size:12px;font-weight:500;color:var(--text-light);}
+.price-sub-cta{text-align:center;}
 
 /* ---------- Voice ---------- */
 .voice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;}
@@ -398,6 +409,7 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
   .hamburger{display:block;}
   .hero-figure{opacity:.35;}
   .about-three{grid-template-columns:1fr;}
+  .price-mini-grid{grid-template-columns:1fr;}
   .feature{grid-template-columns:1fr;gap:32px;margin-bottom:72px;}
   .feature:nth-child(even) .feature-visual{order:0;}
   .flow-steps{grid-template-columns:1fr 1fr;}
@@ -675,6 +687,29 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
       </div>
     </div>
     <p class="price-note">※ 表示はすべて税込価格です。</p>
+
+    <div class="price-sub fade">
+      <div class="price-sub-head">
+        <span class="en">THAI MASSAGE</span>
+        <h3>タイ古式マッサージ<small style="font-size:12px;color:var(--text-light);font-weight:500;">(単体メニュー)</small></h3>
+        <p>パーソナルトレーニングと組み合わせず、タイ古式マッサージのみをご利用いただく場合の料金です。</p>
+      </div>
+      <div class="price-mini-grid">
+        <div class="price-mini-card">
+          <span class="time">60分</span>
+          <span class="amount">¥7,000</span>
+        </div>
+        <div class="price-mini-card">
+          <span class="time">75分</span>
+          <span class="amount">¥8,000</span>
+        </div>
+        <div class="price-mini-card">
+          <span class="time">90分</span>
+          <span class="amount">¥12,000</span>
+        </div>
+      </div>
+      <p class="price-sub-cta"><a href="#contact" class="btn btn-outline">タイ古式マッサージを予約する</a></p>
+    </div>
   </div>
 </section>
 
