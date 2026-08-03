@@ -102,11 +102,6 @@ nav a:hover::after{width:100%;}
     radial-gradient(ellipse at 85% 75%, rgba(240,165,0,.16) 0%, transparent 50%),
     var(--ivory);
 }
-.hero-figure{
-  position:absolute;right:4%;bottom:0;z-index:1;
-  width:min(44vw,560px);height:88%;
-  opacity:.9;
-}
 .hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;text-align:center;}
 .hero-label{
   display:inline-flex;align-items:center;gap:12px;
@@ -424,7 +419,6 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
   nav ul{flex-direction:column;gap:28px;text-align:center;}
   nav a{font-size:16px;}
   .hamburger{display:block;}
-  .hero-figure{opacity:.35;}
   .about-three{grid-template-columns:1fr;}
   .price-mini-grid{grid-template-columns:1fr;}
   .contact-methods{grid-template-columns:1fr;}
@@ -471,17 +465,6 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
 <!-- ===== Hero ===== -->
 <section class="hero" style="padding-left:5%;padding-right:5%;">
   <div class="hero-bg"></div>
-  <svg class="hero-figure" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <!-- abstract posture silhouette -->
-    <ellipse cx="200" cy="560" rx="150" ry="18" fill="rgba(23,58,99,.08)"/>
-    <path d="M200 90 a34 34 0 1 1 .1 0z" fill="#1e5fa8" opacity=".85"/>
-    <path d="M200 130 C 196 180 194 240 196 300 C 197 350 198 420 192 470 L 178 555 L 196 555 L 206 480 L 214 480 L 222 555 L 240 555 L 228 468 C 222 415 224 350 226 300 C 228 240 226 180 222 130 Z" fill="#1e5fa8" opacity=".85"/>
-    <path d="M199 150 C 170 170 150 210 148 250 L 162 254 C 166 220 180 190 200 175 Z" fill="#1e5fa8" opacity=".7"/>
-    <path d="M223 150 C 252 170 270 212 272 252 L 258 256 C 254 222 242 190 222 175 Z" fill="#1e5fa8" opacity=".7"/>
-    <line x1="90" y1="60" x2="90" y2="560" stroke="#f0a500" stroke-width="1.5" stroke-dasharray="6 8" opacity=".8"/>
-    <line x1="310" y1="60" x2="310" y2="560" stroke="#f0a500" stroke-width="1.5" stroke-dasharray="6 8" opacity=".8"/>
-    <circle cx="200" cy="90" r="52" stroke="#f0a500" stroke-width="1" opacity=".55"/>
-  </svg>
   <div class="hero-inner">
     <span class="hero-label en">POSTURE PRIVATE GYM</span>
     <h1 class="serif">姿勢が変われば、<br>人生の<span class="accent">景色</span>が変わる。</h1>
