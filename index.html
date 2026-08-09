@@ -296,9 +296,8 @@ section{padding:110px 5%;}
 .program-promo-list li::before{content:"✓";position:absolute;left:2px;color:var(--gold);font-weight:700;}
 .program-promo-note{font-size:11px;color:var(--text-light);}
 .diet-feature-label{text-align:center;font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.2em;margin:36px 0 20px;}
-.diet-price-block{text-align:center;margin:36px 0 8px;}
-.diet-amount{font-family:'Montserrat','Noto Sans JP',sans-serif;font-size:40px;font-weight:600;color:var(--ink);margin:14px 0 6px;}
-.diet-amount small{font-size:13px;font-weight:500;color:var(--text-light);margin-left:6px;}
+.diet-price-block{max-width:360px;margin:36px auto 8px;}
+.diet-price-note{text-align:center;font-size:11px;color:var(--text-light);letter-spacing:.06em;margin-bottom:18px;}
 .diet-closing{text-align:center;font-size:clamp(16px,2vw,20px);color:var(--ink);font-weight:600;line-height:2.1;letter-spacing:.05em;margin-top:36px;}
 .policy-table{list-style:none;max-width:520px;margin:32px auto 0;border-top:1px solid rgba(23,58,99,.14);}
 .policy-table li{display:flex;justify-content:space-between;gap:20px;padding:16px 4px;border-bottom:1px solid rgba(23,58,99,.14);font-size:13px;color:var(--text);}
@@ -862,9 +861,17 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
       </ul>
 
       <div class="diet-price-block">
-        <span class="program-campaign-badge">お一人様一回限り</span>
-        <div class="diet-amount">¥264,000<small>(税込・3か月)</small></div>
-        <span class="program-or">分割払い: ¥88,000×3回</span>
+        <p class="diet-price-note">※ お一人様一回限りのプログラムです</p>
+        <div class="program-regular">
+          <span class="program-regular-label">通常価格</span>
+          <span class="program-regular-amount">¥198,000<small>(税込)</small></span>
+        </div>
+        <div class="program-campaign">
+          <span class="program-campaign-badge">OPEN記念 先着5名様限定</span>
+          <span class="program-campaign-amount">¥165,000<small>(税込)</small></span>
+          <span class="program-or">または ¥55,000×3回</span>
+          <span class="program-save">33,000円OFF</span>
+        </div>
       </div>
 
       <div class="thai-desc" style="margin-top:8px;">
