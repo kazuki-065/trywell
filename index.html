@@ -1159,7 +1159,7 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
       </div>
       <div class="form-submit">
         <button type="submit" class="btn btn-primary" style="min-width:280px;">送信する</button>
-        <p class="form-note">※ フォームは現在準備中です。ご予約・お問い合わせはお電話(<a href="tel:080-4030-0089" style="text-decoration:underline;">080-4030-0089</a>)、メール(<a href="mailto:trywell.kochi@gmail.com" style="text-decoration:underline;">trywell.kochi@gmail.com</a>)、または公式LINE(<a href="https://lin.ee/Ryz9GpD" style="text-decoration:underline;" target="_blank" rel="noopener">友だち追加はこちら</a>)にてお願いいたします。</p>
+        <p class="form-note">※ 送信するとお使いのメールアプリが起動し、入力内容がメール本文に自動入力されます。内容をご確認のうえ送信してください。メールアプリをお使いでない場合は、お電話(<a href="tel:080-4030-0089" style="text-decoration:underline;">080-4030-0089</a>)または公式LINE(<a href="https://lin.ee/Ryz9GpD" style="text-decoration:underline;" target="_blank" rel="noopener">友だち追加はこちら</a>)にてお願いいたします。</p>
       </div>
     </form>
     <p class="contact-divider fade">フォームの送信が難しい場合は、LINEからもお気軽にご連絡ください</p>
@@ -1233,10 +1233,28 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// demo form
+// contact form: opens the visitor's mail app with the message pre-filled
 document.getElementById('contactForm').addEventListener('submit', e => {
   e.preventDefault();
-  alert('申し訳ありません。フォームは現在準備中です。\nご予約・お問い合わせはお電話(080-4030-0089)にてお願いいたします。');
+  const f = e.target;
+  const name = f.name.value.trim();
+  const email = f.email.value.trim();
+  const tel = f.tel.value.trim();
+  const type = f.type.value;
+  const message = f.message.value.trim();
+
+  const subject = `【TRY WELL】お問い合わせ(${type})`;
+  const body = [
+    `お名前: ${name}`,
+    `メールアドレス: ${email}`,
+    `電話番号: ${tel || '(未入力)'}`,
+    `ご希望の内容: ${type}`,
+    '',
+    'お悩み・ご質問など:',
+    message || '(未入力)'
+  ].join('\n');
+
+  window.location.href = `mailto:trywell.kochi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });
 </script>
 </body>
