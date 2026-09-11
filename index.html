@@ -258,6 +258,21 @@ section{padding:110px 5%;}
 .price-card-desc{font-size:13px;color:var(--text-light);line-height:1.9;text-align:left;margin-bottom:20px;}
 .price-card-label{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.1em;text-align:left;margin-bottom:8px;}
 .price-note{text-align:center;font-size:12px;color:var(--text-light);margin-top:36px;}
+/* price accordion */
+.price-acc{max-width:900px;margin:56px auto 0;}
+.price-acc-item{border-top:1px solid rgba(23,58,99,.14);}
+.price-acc-item:last-child{border-bottom:1px solid rgba(23,58,99,.14);}
+.price-acc-q{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 8px;text-align:left;font-family:'Noto Sans JP',sans-serif;}
+.price-acc-q-main{display:flex;flex-direction:column;gap:6px;}
+.price-acc-q .label{font-size:11px;color:var(--gold);letter-spacing:.2em;font-weight:600;}
+.price-acc-q .title{font-size:18px;color:var(--ink);font-weight:700;letter-spacing:.03em;}
+.price-acc-q .toggle{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1px solid var(--gold);position:relative;transition:.3s;}
+.price-acc-q .toggle::before,.price-acc-q .toggle::after{content:"";position:absolute;top:50%;left:50%;background:var(--gold);transition:.3s;}
+.price-acc-q .toggle::before{width:13px;height:1.5px;transform:translate(-50%,-50%);}
+.price-acc-q .toggle::after{width:1.5px;height:13px;transform:translate(-50%,-50%);}
+.price-acc-item.open .toggle::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0;}
+.price-acc-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.price-acc-a-inner{padding:8px 8px 48px;}
 .price-sub{max-width:1000px;margin:76px auto 0;padding-top:56px;border-top:1px solid rgba(23,58,99,.12);}
 .price-sub-head{text-align:center;margin-bottom:36px;}
 .price-sub-head .en{display:block;font-size:11px;color:var(--gold);letter-spacing:.28em;font-weight:600;margin-bottom:10px;}
@@ -674,295 +689,299 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
       <h2 class="serif">料金プラン</h2>
       <p class="badge-row"><span class="info-badge">会員制 / 入会金無料</span></p>
     </div>
-    <div class="price-grid">
-      <div class="price-card fade">
-        <h3>体験コース</h3>
-        <span class="plan-en en">TRIAL</span>
-        <div class="amount">¥5,000<small> /75分</small></div>
-        <p class="tax">(税込)</p>
-        <ul>
-          <li>カウンセリング + 姿勢チェック</li>
-          <li>体験トレーニング</li>
-          <li>あなたに合ったコースのご提案</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline" style="width:100%;">体験を予約する</a>
-      </div>
-      <div class="price-card featured fade">
-        <span class="price-badge">スタンダード</span>
-        <h3>75分コース</h3>
-        <span class="plan-en en">STANDARD</span>
-        <div class="amount">¥10,000<small> /回</small></div>
-        <p class="tax">(税込・単発)</p>
-        <ul>
-          <li>4回チケット ¥38,000<small>(1回あたり¥9,500)</small></li>
-          <li>8回チケット ¥72,000<small>(1回あたり¥9,000)</small></li>
-          <li>パーソナルトレーニング / タイ古式マッサージ / 組み合わせ利用OK</li>
-          <li>有効期限: 4回=2か月 / 8回=4か月</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" style="width:100%;">このコースで始める</a>
-      </div>
-      <div class="price-card fade">
-        <h3>90分コース</h3>
-        <span class="plan-en en">PREMIUM</span>
-        <div class="amount">¥13,000<small> /回</small></div>
-        <p class="tax">(税込・単発)</p>
-        <ul>
-          <li>4回チケット ¥50,000<small>(1回あたり¥12,500)</small></li>
-          <li>8回チケット ¥92,000<small>(1回あたり¥11,500)</small></li>
-          <li>パーソナルトレーニング / タイ古式マッサージ / 組み合わせ利用OK</li>
-          <li>有効期限: 4回=2か月 / 8回=4か月</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline" style="width:100%;">このコースで始める</a>
-      </div>
-    </div>
-    <p class="price-note">※ 表示はすべて税込価格です。</p>
+    <p class="price-note" style="margin-top:0;">※ 表示はすべて税込価格です。姿勢改善プログラム・ダイエットプログラムはOPEN記念価格(先着5名様限定)です。各メニューをタップして詳細をご確認ください。</p>
 
-    <div class="price-sub fade">
-      <div class="price-sub-head">
-        <span class="en">PAIR &amp; GROUP</span>
-        <h3>ペア・グループトレーニング</h3>
-        <p>大切な人と一緒に、楽しく続けられるトレーニングです。</p>
+    <div class="price-acc fade">
+      <div class="price-acc-item">
+        <button class="price-acc-q"><span class="price-acc-q-main"><span class="label en">PERSONAL TRAINING</span><span class="title">パーソナルトレーニング(体験・75分・90分)</span></span><span class="toggle"></span></button>
+        <div class="price-acc-a"><div class="price-acc-a-inner">
+          <div class="price-grid">
+            <div class="price-card fade">
+              <h3>体験コース</h3>
+              <span class="plan-en en">TRIAL</span>
+              <div class="amount">¥5,000<small> /75分</small></div>
+              <p class="tax">(税込)</p>
+              <ul>
+                <li>カウンセリング + 姿勢チェック</li>
+                <li>体験トレーニング</li>
+                <li>あなたに合ったコースのご提案</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline" style="width:100%;">体験を予約する</a>
+            </div>
+            <div class="price-card featured fade">
+              <span class="price-badge">スタンダード</span>
+              <h3>75分コース</h3>
+              <span class="plan-en en">STANDARD</span>
+              <div class="amount">¥10,000<small> /回</small></div>
+              <p class="tax">(税込・単発)</p>
+              <ul>
+                <li>4回チケット ¥38,000<small>(1回あたり¥9,500)</small></li>
+                <li>8回チケット ¥72,000<small>(1回あたり¥9,000)</small></li>
+                <li>パーソナルトレーニング / タイ古式マッサージ / 組み合わせ利用OK</li>
+                <li>有効期限: 4回=2か月 / 8回=4か月</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary" style="width:100%;">このコースで始める</a>
+            </div>
+            <div class="price-card fade">
+              <h3>90分コース</h3>
+              <span class="plan-en en">PREMIUM</span>
+              <div class="amount">¥13,000<small> /回</small></div>
+              <p class="tax">(税込・単発)</p>
+              <ul>
+                <li>4回チケット ¥50,000<small>(1回あたり¥12,500)</small></li>
+                <li>8回チケット ¥92,000<small>(1回あたり¥11,500)</small></li>
+                <li>パーソナルトレーニング / タイ古式マッサージ / 組み合わせ利用OK</li>
+                <li>有効期限: 4回=2か月 / 8回=4か月</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline" style="width:100%;">このコースで始める</a>
+            </div>
+          </div>
+        </div></div>
       </div>
-      <div class="price-grid" style="margin-bottom:0;">
-        <div class="price-card fade">
-          <h3>ペアトレーニング</h3>
-          <span class="plan-en en">PAIR</span>
-          <div class="amount">¥10,000<small> /2名</small></div>
-          <p class="tax">(税込・75分)</p>
-          <p class="price-card-desc">ご夫婦・ご友人・親子など、2人で楽しく姿勢改善。一緒に取り組むことでモチベーションを維持しやすく、健康習慣も身につきます。</p>
-          <p class="price-card-label">おすすめ</p>
-          <ul>
-            <li>ご夫婦</li>
-            <li>ご友人</li>
-            <li>親子</li>
+
+      <div class="price-acc-item">
+        <button class="price-acc-q"><span class="price-acc-q-main"><span class="label en">PAIR &amp; GROUP</span><span class="title">ペア・グループトレーニング</span></span><span class="toggle"></span></button>
+        <div class="price-acc-a"><div class="price-acc-a-inner">
+          <p style="text-align:center;font-size:13px;color:var(--text-light);margin-bottom:32px;">大切な人と一緒に、楽しく続けられるトレーニングです。</p>
+          <div class="price-grid" style="margin-bottom:0;">
+            <div class="price-card fade">
+              <h3>ペアトレーニング</h3>
+              <span class="plan-en en">PAIR</span>
+              <div class="amount">¥10,000<small> /2名</small></div>
+              <p class="tax">(税込・75分)</p>
+              <p class="price-card-desc">ご夫婦・ご友人・親子など、2人で楽しく姿勢改善。一緒に取り組むことでモチベーションを維持しやすく、健康習慣も身につきます。</p>
+              <p class="price-card-label">おすすめ</p>
+              <ul>
+                <li>ご夫婦</li>
+                <li>ご友人</li>
+                <li>親子</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline" style="width:100%;">ペアトレーニングを予約する</a>
+            </div>
+            <div class="price-card fade">
+              <h3>グループトレーニング</h3>
+              <span class="plan-en en">GROUP</span>
+              <div class="amount">¥3,000<small> /1名</small></div>
+              <p class="tax">(税込・75分・3〜5名まで)</p>
+              <p class="price-card-desc">姿勢改善・体幹トレーニング・ストレッチを中心に、一人ひとりの身体に合わせたグループレッスンを行います。</p>
+              <p class="price-card-label">こんな方におすすめ</p>
+              <ul>
+                <li>ご家族</li>
+                <li>お友達同士</li>
+                <li>部活動・スポーツチーム</li>
+                <li>職場の健康づくり</li>
+                <li>ママ友グループ</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline" style="width:100%;">グループトレーニングを予約する</a>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="price-acc-item">
+        <button class="price-acc-q"><span class="price-acc-q-main"><span class="label en">PROGRAM</span><span class="title">姿勢改善プログラム(3か月・6か月)</span></span><span class="toggle"></span></button>
+        <div class="price-acc-a"><div class="price-acc-a-inner">
+          <p style="text-align:center;font-size:13px;color:var(--text-light);margin-bottom:32px;">3か月・6か月でしっかり結果を出したい方向けの、伴走型プログラムです。</p>
+          <div class="program-grid">
+            <div class="program-card">
+              <h4>姿勢改善3か月プログラム</h4>
+              <div class="program-regular">
+                <span class="program-regular-label">通常価格</span>
+                <span class="program-regular-amount">¥120,000<small>(税込)</small></span>
+                <span class="program-or">または ¥40,000×3回</span>
+              </div>
+              <div class="program-campaign">
+                <span class="program-campaign-badge">OPEN記念 先着5名様限定</span>
+                <span class="program-campaign-amount">¥105,000<small>(税込)</small></span>
+                <span class="program-or">または ¥35,000×3回</span>
+                <span class="program-save">15,000円OFF</span>
+              </div>
+              <a href="#contact" class="btn btn-primary" style="width:100%;">このプログラムで始める</a>
+            </div>
+            <div class="program-card">
+              <h4>姿勢改善6か月プログラム</h4>
+              <div class="program-regular">
+                <span class="program-regular-label">通常価格</span>
+                <span class="program-regular-amount">¥228,000<small>(税込)</small></span>
+                <span class="program-or">または ¥38,000×6回</span>
+              </div>
+              <div class="program-campaign">
+                <span class="program-campaign-badge">OPEN記念 先着5名様限定</span>
+                <span class="program-campaign-amount">¥198,000<small>(税込)</small></span>
+                <span class="program-or">または ¥33,000×6回</span>
+                <span class="program-save">30,000円OFF</span>
+              </div>
+              <a href="#contact" class="btn btn-primary" style="width:100%;">このプログラムで始める</a>
+            </div>
+          </div>
+          <div class="program-promo">
+            <span class="program-promo-title en">OPEN CAMPAIGN</span>
+            <h4>OPEN記念キャンペーン<small>先着5名様限定</small></h4>
+            <ul class="program-promo-list">
+              <li>プログラム特別価格</li>
+              <li>体験料5,000円キャッシュバック</li>
+              <li>TRY WELLオリジナルタオルプレゼント</li>
+              <li>タイ古式マッサージ30分無料券プレゼント(有効期限2か月)</li>
+              <li>LINEによるお食事アドバイス</li>
+              <li>セルフケア動画の提供</li>
+              <li>LINEでの質疑応答</li>
+            </ul>
+            <p class="program-promo-note">※体験日を含め3日以内のお申し込みが対象です。</p>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="price-acc-item">
+        <button class="price-acc-q"><span class="price-acc-q-main"><span class="label en">DIET PROGRAM</span><span class="title">本気の3か月ダイエットプログラム</span></span><span class="toggle"></span></button>
+        <div class="price-acc-a"><div class="price-acc-a-inner">
+          <p style="text-align:center;font-size:13px;color:var(--text-light);margin-bottom:32px;">人生で一度、本気で身体と向き合う3か月。</p>
+          <div class="thai-desc">
+            <p>ダイエットと姿勢改善は、切っても切り離せないほど深い関係にあります。姿勢が崩れると筋肉が正しく使われず代謝が落ち、痩せにくい身体になります。逆に姿勢が整うことで筋肉本来の機能が働き、太りにくく痩せやすい身体へと近づいていきます。だからこそTRY WELLは、ダイエットにも姿勢改善の視点を大切にしています。</p>
+            <p>「痩せたい」と思っていても、仕事が忙しい、今日は疲れた、明日から頑張ろう……。一人では、どうしても続けられないことがあります。</p>
+            <p>TRY WELLの「本気の3か月ダイエットプログラム」は、そんな方のための3か月間の集中プログラムです。トレーニングだけではなく、毎日の食事・運動・生活習慣までトータルでサポート。TRY WELLも本気で伴走します。</p>
+            <p>その代わり、あなたにも3か月間、本気で取り組んでいただきます。</p>
+          </div>
+
+          <p class="diet-feature-label">このプログラムの特徴</p>
+          <div class="thai-features">
+            <div class="thai-feature" style="--accent:var(--leaf);">
+              <h4>週2回・75分のパーソナルトレーニング</h4>
+              <p>姿勢や身体の状態を評価しながら、一人ひとりに合わせたトレーニングを実施します。</p>
+            </div>
+            <div class="thai-feature" style="--accent:var(--green);">
+              <h4>毎日の食事サポート</h4>
+              <p>食事内容をご報告いただき、目標や生活スタイルに合わせてフィードバックします。極端な食事制限ではなく、プログラム終了後も自分で続けられる食習慣を目指します。</p>
+            </div>
+            <div class="thai-feature" style="--accent:var(--gold);">
+              <h4>自宅でも続けられるサポート</h4>
+              <p>一人でも取り組めるトレーニングやセルフケア動画をご提供。LINEでの質疑応答にも対応します。</p>
+            </div>
+            <div class="thai-feature" style="--accent:var(--leaf);">
+              <h4>毎月、変化を確認</h4>
+              <p>体重・体脂肪率・各部位のサイズ測定に加え、Before/After写真や姿勢評価を行い、身体の変化を一緒に確認します。</p>
+            </div>
+          </div>
+
+          <p class="diet-feature-label">プログラム内容</p>
+          <ul class="program-promo-list">
+            <li>期間: 3か月</li>
+            <li>パーソナルトレーニング: 75分 × 全24回(週2回)</li>
+            <li>毎日の食事報告 & フィードバック</li>
+            <li>LINEでの質疑応答</li>
+            <li>自宅トレーニングメニュー</li>
+            <li>セルフケア動画</li>
+            <li>姿勢・身体評価</li>
+            <li>体重・体脂肪率・各部位の測定</li>
+            <li>毎月のBefore/After撮影・振り返り</li>
           </ul>
-          <a href="#contact" class="btn btn-outline" style="width:100%;">ペアトレーニングを予約する</a>
-        </div>
-        <div class="price-card fade">
-          <h3>グループトレーニング</h3>
-          <span class="plan-en en">GROUP</span>
-          <div class="amount">¥3,000<small> /1名</small></div>
-          <p class="tax">(税込・75分・3〜5名まで)</p>
-          <p class="price-card-desc">姿勢改善・体幹トレーニング・ストレッチを中心に、一人ひとりの身体に合わせたグループレッスンを行います。</p>
-          <p class="price-card-label">こんな方におすすめ</p>
-          <ul>
-            <li>ご家族</li>
-            <li>お友達同士</li>
-            <li>部活動・スポーツチーム</li>
-            <li>職場の健康づくり</li>
-            <li>ママ友グループ</li>
-          </ul>
-          <a href="#contact" class="btn btn-outline" style="width:100%;">グループトレーニングを予約する</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="price-sub fade">
-      <div class="price-sub-head">
-        <span class="en">PROGRAM</span>
-        <h3>姿勢改善プログラム</h3>
-        <p>3か月・6か月でしっかり結果を出したい方向けの、伴走型プログラムです。</p>
-      </div>
-      <div class="program-grid">
-        <div class="program-card">
-          <h4>姿勢改善3か月プログラム</h4>
-          <div class="program-regular">
-            <span class="program-regular-label">通常価格</span>
-            <span class="program-regular-amount">¥120,000<small>(税込)</small></span>
-            <span class="program-or">または ¥40,000×3回</span>
+          <div class="diet-price-block">
+            <p class="diet-price-note">※ お一人様一回限りのプログラムです</p>
+            <div class="program-regular">
+              <span class="program-regular-label">通常価格</span>
+              <span class="program-regular-amount">¥198,000<small>(税込)</small></span>
+            </div>
+            <div class="program-campaign">
+              <span class="program-campaign-badge">OPEN記念 先着5名様限定</span>
+              <span class="program-campaign-amount">¥165,000<small>(税込)</small></span>
+              <span class="program-or">または ¥55,000×3回</span>
+              <span class="program-save">33,000円OFF</span>
+            </div>
           </div>
-          <div class="program-campaign">
-            <span class="program-campaign-badge">OPEN記念 先着5名様限定</span>
-            <span class="program-campaign-amount">¥105,000<small>(税込)</small></span>
-            <span class="program-or">または ¥35,000×3回</span>
-            <span class="program-save">15,000円OFF</span>
-          </div>
-          <a href="#contact" class="btn btn-primary" style="width:100%;">このプログラムで始める</a>
-        </div>
-        <div class="program-card">
-          <h4>姿勢改善6か月プログラム</h4>
-          <div class="program-regular">
-            <span class="program-regular-label">通常価格</span>
-            <span class="program-regular-amount">¥228,000<small>(税込)</small></span>
-            <span class="program-or">または ¥38,000×6回</span>
-          </div>
-          <div class="program-campaign">
-            <span class="program-campaign-badge">OPEN記念 先着5名様限定</span>
-            <span class="program-campaign-amount">¥198,000<small>(税込)</small></span>
-            <span class="program-or">または ¥33,000×6回</span>
-            <span class="program-save">30,000円OFF</span>
-          </div>
-          <a href="#contact" class="btn btn-primary" style="width:100%;">このプログラムで始める</a>
-        </div>
-      </div>
-      <div class="program-promo">
-        <span class="program-promo-title en">OPEN CAMPAIGN</span>
-        <h4>OPEN記念キャンペーン<small>先着5名様限定</small></h4>
-        <ul class="program-promo-list">
-          <li>プログラム特別価格</li>
-          <li>体験料5,000円キャッシュバック</li>
-          <li>TRY WELLオリジナルタオルプレゼント</li>
-          <li>タイ古式マッサージ30分無料券プレゼント(有効期限2か月)</li>
-          <li>LINEによるお食事アドバイス</li>
-          <li>セルフケア動画の提供</li>
-          <li>LINEでの質疑応答</li>
-        </ul>
-        <p class="program-promo-note">※体験日を含め3日以内のお申し込みが対象です。</p>
-      </div>
-    </div>
 
-    <div class="price-sub fade">
-      <div class="price-sub-head">
-        <span class="en">DIET PROGRAM</span>
-        <h3>本気の3か月ダイエットプログラム</h3>
-        <p>人生で一度、本気で身体と向き合う3か月。</p>
-      </div>
-      <div class="thai-desc">
-        <p>ダイエットと姿勢改善は、切っても切り離せないほど深い関係にあります。姿勢が崩れると筋肉が正しく使われず代謝が落ち、痩せにくい身体になります。逆に姿勢が整うことで筋肉本来の機能が働き、太りにくく痩せやすい身体へと近づいていきます。だからこそTRY WELLは、ダイエットにも姿勢改善の視点を大切にしています。</p>
-        <p>「痩せたい」と思っていても、仕事が忙しい、今日は疲れた、明日から頑張ろう……。一人では、どうしても続けられないことがあります。</p>
-        <p>TRY WELLの「本気の3か月ダイエットプログラム」は、そんな方のための3か月間の集中プログラムです。トレーニングだけではなく、毎日の食事・運動・生活習慣までトータルでサポート。TRY WELLも本気で伴走します。</p>
-        <p>その代わり、あなたにも3か月間、本気で取り組んでいただきます。</p>
+          <div class="thai-desc" style="margin-top:8px;">
+            <p>TRY WELLが目指すのは、何度もダイエットを繰り返すことではありません。3か月間で身体を変えることだけでなく、「自分の身体を自分で管理できる知識と習慣を身につけること」を、このプログラムのゴールの一つと考えています。</p>
+            <p>だからこそ、本プログラムへの参加はお一人様一回限り。3か月後は「またダイエットを始める」のではなく、自分自身で続けられる状態からの卒業を目指します。</p>
+            <p>プログラム終了後も身体づくりを続けたい方は、単発セッションやチケットをご利用いただけます。</p>
+          </div>
+
+          <p class="diet-closing serif">本気で変わりたい方へ。<br>TRY WELLも、本気で向き合います。<br><br>ただし、身体を変えるのはトレーナーではありません。<br>変えるのは、あなた自身です。<br><br>そのための環境・知識・トレーニング・サポートを、<br>TRY WELLが3か月間全力で提供します。<br><br>「いつか」ではなく、「今」から。</p>
+
+          <p class="price-sub-cta" style="margin-top:32px;"><a href="#contact" class="btn btn-primary">このプログラムに申し込む</a></p>
+        </div></div>
       </div>
 
-      <p class="diet-feature-label">このプログラムの特徴</p>
-      <div class="thai-features">
-        <div class="thai-feature" style="--accent:var(--leaf);">
-          <h4>週2回・75分のパーソナルトレーニング</h4>
-          <p>姿勢や身体の状態を評価しながら、一人ひとりに合わせたトレーニングを実施します。</p>
-        </div>
-        <div class="thai-feature" style="--accent:var(--green);">
-          <h4>毎日の食事サポート</h4>
-          <p>食事内容をご報告いただき、目標や生活スタイルに合わせてフィードバックします。極端な食事制限ではなく、プログラム終了後も自分で続けられる食習慣を目指します。</p>
-        </div>
-        <div class="thai-feature" style="--accent:var(--gold);">
-          <h4>自宅でも続けられるサポート</h4>
-          <p>一人でも取り組めるトレーニングやセルフケア動画をご提供。LINEでの質疑応答にも対応します。</p>
-        </div>
-        <div class="thai-feature" style="--accent:var(--leaf);">
-          <h4>毎月、変化を確認</h4>
-          <p>体重・体脂肪率・各部位のサイズ測定に加え、Before/After写真や姿勢評価を行い、身体の変化を一緒に確認します。</p>
-        </div>
-      </div>
-
-      <p class="diet-feature-label">プログラム内容</p>
-      <ul class="program-promo-list">
-        <li>期間: 3か月</li>
-        <li>パーソナルトレーニング: 75分 × 全24回(週2回)</li>
-        <li>毎日の食事報告 & フィードバック</li>
-        <li>LINEでの質疑応答</li>
-        <li>自宅トレーニングメニュー</li>
-        <li>セルフケア動画</li>
-        <li>姿勢・身体評価</li>
-        <li>体重・体脂肪率・各部位の測定</li>
-        <li>毎月のBefore/After撮影・振り返り</li>
-      </ul>
-
-      <div class="diet-price-block">
-        <p class="diet-price-note">※ お一人様一回限りのプログラムです</p>
-        <div class="program-regular">
-          <span class="program-regular-label">通常価格</span>
-          <span class="program-regular-amount">¥198,000<small>(税込)</small></span>
-        </div>
-        <div class="program-campaign">
-          <span class="program-campaign-badge">OPEN記念 先着5名様限定</span>
-          <span class="program-campaign-amount">¥165,000<small>(税込)</small></span>
-          <span class="program-or">または ¥55,000×3回</span>
-          <span class="program-save">33,000円OFF</span>
-        </div>
-      </div>
-
-      <div class="thai-desc" style="margin-top:8px;">
-        <p>TRY WELLが目指すのは、何度もダイエットを繰り返すことではありません。3か月間で身体を変えることだけでなく、「自分の身体を自分で管理できる知識と習慣を身につけること」を、このプログラムのゴールの一つと考えています。</p>
-        <p>だからこそ、本プログラムへの参加はお一人様一回限り。3か月後は「またダイエットを始める」のではなく、自分自身で続けられる状態からの卒業を目指します。</p>
-        <p>プログラム終了後も身体づくりを続けたい方は、単発セッションやチケットをご利用いただけます。</p>
-      </div>
-
-      <p class="diet-closing serif">本気で変わりたい方へ。<br>TRY WELLも、本気で向き合います。<br><br>ただし、身体を変えるのはトレーナーではありません。<br>変えるのは、あなた自身です。<br><br>そのための環境・知識・トレーニング・サポートを、<br>TRY WELLが3か月間全力で提供します。<br><br>「いつか」ではなく、「今」から。</p>
-
-      <p class="price-sub-cta" style="margin-top:32px;"><a href="#contact" class="btn btn-primary">このプログラムに申し込む</a></p>
-    </div>
-
-    <div class="price-sub fade">
-      <div class="price-sub-head">
-        <span class="en">THAI MASSAGE</span>
-        <h3>タイ古式マッサージ<small style="font-size:12px;color:var(--text-light);font-weight:500;">(単体メニュー)</small></h3>
-        <p class="thai-lead">タイ古式マッサージ🇹🇭とは、、、</p>
-        <div class="thai-desc">
-          <p>タイ古式マッサージとは、タイ伝承医学に基づいたボディケア、心のコンディショニング療法です。セラピストが全身を用いて、お客様のつま先から頭の先まで全身につながる筋膜をほぐしていきます。タイ古式マッサージは、ふたりヨガと言われています。お客様が寝た状態でヨガを行った時と呼ばれています。</p>
-          <p>全身を流れるエネルギーライン(セン)と呼ばれる身体のラインに沿ってゆっくりじっくり施術していきます。</p>
-          <p>リラクゼーションのみならず、個人に特化した解剖学的視点でのタイ古式マッサージが可能です。</p>
-        </div>
-        <div class="thai-features">
-          <div class="thai-feature" style="--accent:var(--leaf);">
-            <img src="assets/thai-1.png" alt="">
-            <h4>全身をゆるめる深い圧とストレッチ</h4>
-            <p>指圧とストレッチを組み合わせ、筋肉の緊張をゆるめながら、可動域を広げていきます。心地よいリズムで全身を整えます。</p>
+      <div class="price-acc-item">
+        <button class="price-acc-q"><span class="price-acc-q-main"><span class="label en">THAI MASSAGE</span><span class="title">タイ古式マッサージ(単体メニュー)</span></span><span class="toggle"></span></button>
+        <div class="price-acc-a"><div class="price-acc-a-inner">
+          <p class="thai-lead">タイ古式マッサージ🇹🇭とは、、、</p>
+          <div class="thai-desc">
+            <p>タイ古式マッサージとは、タイ伝承医学に基づいたボディケア、心のコンディショニング療法です。セラピストが全身を用いて、お客様のつま先から頭の先まで全身につながる筋膜をほぐしていきます。タイ古式マッサージは、ふたりヨガと言われています。お客様が寝た状態でヨガを行った時と呼ばれています。</p>
+            <p>全身を流れるエネルギーライン(セン)と呼ばれる身体のラインに沿ってゆっくりじっくり施術していきます。</p>
+            <p>リラクゼーションのみならず、個人に特化した解剖学的視点でのタイ古式マッサージが可能です。</p>
           </div>
-          <div class="thai-feature" style="--accent:var(--green);">
-            <img src="assets/thai-2.png" alt="">
-            <h4>タイ古式ならではのストレッチ</h4>
-            <p>ヨガのようなストレッチで、筋肉と関節をやさしく伸ばし、体の巡りをサポート。終わった後は体が軽くなります。</p>
+          <div class="thai-features">
+            <div class="thai-feature" style="--accent:var(--leaf);">
+              <img src="assets/thai-1.png" alt="">
+              <h4>全身をゆるめる深い圧とストレッチ</h4>
+              <p>指圧とストレッチを組み合わせ、筋肉の緊張をゆるめながら、可動域を広げていきます。心地よいリズムで全身を整えます。</p>
+            </div>
+            <div class="thai-feature" style="--accent:var(--green);">
+              <img src="assets/thai-2.png" alt="">
+              <h4>タイ古式ならではのストレッチ</h4>
+              <p>ヨガのようなストレッチで、筋肉と関節をやさしく伸ばし、体の巡りをサポート。終わった後は体が軽くなります。</p>
+            </div>
+            <div class="thai-feature" style="--accent:var(--gold);">
+              <img src="assets/thai-3.png" alt="">
+              <h4>内側から整う心地よさ</h4>
+              <p>血流やリンパの流れを促進し、内臓機能の働きもサポート。疲労回復や睡眠の質向上にもつながります。</p>
+            </div>
+            <div class="thai-feature" style="--accent:var(--green);">
+              <img src="assets/thai-4.png" alt="">
+              <h4>一人ひとりに合わせたオーダーメイド</h4>
+              <p>体の状態やお悩みに合わせて、圧の強さやストレッチの内容を調整します。初めての方でも安心して受けられます。</p>
+            </div>
+            <div class="thai-feature" style="--accent:var(--leaf);">
+              <img src="assets/thai-5.png" alt="">
+              <h4>心も整うリラクゼーション</h4>
+              <p>ゆったりとしたリズムと深い呼吸で、自律神経のバランスを整え、心身ともにリラックスへと導きます。</p>
+            </div>
+            <div class="thai-feature" style="--accent:var(--gold);">
+              <img src="assets/thai-6.png" alt="">
+              <h4>心地よい空間で特別な時間を</h4>
+              <p>落ち着いた空間で、日常を忘れて自分のための時間を。体も心もリセットできるひとときをご提供します。</p>
+            </div>
           </div>
-          <div class="thai-feature" style="--accent:var(--gold);">
-            <img src="assets/thai-3.png" alt="">
-            <h4>内側から整う心地よさ</h4>
-            <p>血流やリンパの流れを促進し、内臓機能の働きもサポート。疲労回復や睡眠の質向上にもつながります。</p>
+          <p class="price-sub-note">パーソナルトレーニングと組み合わせず、タイ古式マッサージのみをご利用いただく場合の料金です。</p>
+          <div class="price-grid" style="margin-bottom:0;margin-top:32px;">
+            <div class="price-card fade">
+              <h3>60分</h3>
+              <span class="plan-en en">THAI 60</span>
+              <div class="amount">¥7,000</div>
+              <p class="tax">(税込)</p>
+              <ul>
+                <li>全身の指圧 + ストレッチ</li>
+                <li>完全個室・完全予約制</li>
+                <li>パーソナルトレーニングとの組み合わせも可能</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline" style="width:100%;">このメニューで予約する</a>
+            </div>
+            <div class="price-card fade">
+              <h3>75分</h3>
+              <span class="plan-en en">THAI 75</span>
+              <div class="amount">¥8,000</div>
+              <p class="tax">(税込)</p>
+              <ul>
+                <li>全身の指圧 + ストレッチ</li>
+                <li>完全個室・完全予約制</li>
+                <li>パーソナルトレーニングとの組み合わせも可能</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline" style="width:100%;">このメニューで予約する</a>
+            </div>
+            <div class="price-card fade">
+              <h3>90分</h3>
+              <span class="plan-en en">THAI 90</span>
+              <div class="amount">¥12,000</div>
+              <p class="tax">(税込)</p>
+              <ul>
+                <li>全身の指圧 + ストレッチ</li>
+                <li>完全個室・完全予約制</li>
+                <li>パーソナルトレーニングとの組み合わせも可能</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline" style="width:100%;">このメニューで予約する</a>
+            </div>
           </div>
-          <div class="thai-feature" style="--accent:var(--green);">
-            <img src="assets/thai-4.png" alt="">
-            <h4>一人ひとりに合わせたオーダーメイド</h4>
-            <p>体の状態やお悩みに合わせて、圧の強さやストレッチの内容を調整します。初めての方でも安心して受けられます。</p>
-          </div>
-          <div class="thai-feature" style="--accent:var(--leaf);">
-            <img src="assets/thai-5.png" alt="">
-            <h4>心も整うリラクゼーション</h4>
-            <p>ゆったりとしたリズムと深い呼吸で、自律神経のバランスを整え、心身ともにリラックスへと導きます。</p>
-          </div>
-          <div class="thai-feature" style="--accent:var(--gold);">
-            <img src="assets/thai-6.png" alt="">
-            <h4>心地よい空間で特別な時間を</h4>
-            <p>落ち着いた空間で、日常を忘れて自分のための時間を。体も心もリセットできるひとときをご提供します。</p>
-          </div>
-        </div>
-        <p class="price-sub-note">パーソナルトレーニングと組み合わせず、タイ古式マッサージのみをご利用いただく場合の料金です。</p>
-      </div>
-      <div class="price-grid" style="margin-bottom:0;">
-        <div class="price-card fade">
-          <h3>60分</h3>
-          <span class="plan-en en">THAI 60</span>
-          <div class="amount">¥7,000</div>
-          <p class="tax">(税込)</p>
-          <ul>
-            <li>全身の指圧 + ストレッチ</li>
-            <li>完全個室・完全予約制</li>
-            <li>パーソナルトレーニングとの組み合わせも可能</li>
-          </ul>
-          <a href="#contact" class="btn btn-outline" style="width:100%;">このメニューで予約する</a>
-        </div>
-        <div class="price-card fade">
-          <h3>75分</h3>
-          <span class="plan-en en">THAI 75</span>
-          <div class="amount">¥8,000</div>
-          <p class="tax">(税込)</p>
-          <ul>
-            <li>全身の指圧 + ストレッチ</li>
-            <li>完全個室・完全予約制</li>
-            <li>パーソナルトレーニングとの組み合わせも可能</li>
-          </ul>
-          <a href="#contact" class="btn btn-outline" style="width:100%;">このメニューで予約する</a>
-        </div>
-        <div class="price-card fade">
-          <h3>90分</h3>
-          <span class="plan-en en">THAI 90</span>
-          <div class="amount">¥12,000</div>
-          <p class="tax">(税込)</p>
-          <ul>
-            <li>全身の指圧 + ストレッチ</li>
-            <li>完全個室・完全予約制</li>
-            <li>パーソナルトレーニングとの組み合わせも可能</li>
-          </ul>
-          <a href="#contact" class="btn btn-outline" style="width:100%;">このメニューで予約する</a>
-        </div>
+        </div></div>
       </div>
     </div>
   </div>
@@ -1219,6 +1238,19 @@ document.querySelectorAll('.faq-item').forEach(item => {
   const a = item.querySelector('.faq-a');
   q.addEventListener('click', () => {
     const isOpen = item.classList.toggle('open');
+    a.style.maxHeight = isOpen ? a.scrollHeight + 'px' : 0;
+  });
+});
+
+// Price accordion
+document.querySelectorAll('.price-acc-item').forEach(item => {
+  const q = item.querySelector('.price-acc-q');
+  const a = item.querySelector('.price-acc-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.toggle('open');
+    if (isOpen) {
+      a.querySelectorAll('.fade').forEach(el => el.classList.add('visible'));
+    }
     a.style.maxHeight = isOpen ? a.scrollHeight + 'px' : 0;
   });
 });
