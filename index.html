@@ -116,6 +116,10 @@ nav a:hover::after{width:100%;}
   margin-bottom:28px;
 }
 .hero h1 .accent{color:var(--gold);}
+.mobile-break{display:none;}
+@media (max-width:480px){
+  .mobile-break{display:block;}
+}
 .hero p.lead{
   font-size:clamp(14px,1.4vw,17px);color:var(--text-light);
   max-width:560px;margin:0 auto 44px;letter-spacing:.05em;
@@ -521,7 +525,7 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
   <div class="hero-bg"></div>
   <div class="hero-inner">
     <span class="hero-label en">POSTURE PRIVATE GYM</span>
-    <h1 class="serif">姿勢が変われば、<br>人生の<span class="accent">景色</span>が変わる。</h1>
+    <h1 class="serif">姿勢が変われば、<br>人生の<span class="accent">景色</span><br class="mobile-break">が変わる。</h1>
     <p class="lead">TRY WELLは、猫背・巻き肩・反り腰・側湾症・スマホ首など、姿勢の悩みに特化した完全個室のプライベートジム。国家資格を持つ専門トレーナーが、あなたの身体とマンツーマンで向き合います。</p>
     <p class="hero-tagline en"><span style="color:var(--leaf);">WELLNESS</span><span class="dot">・</span><span style="color:var(--green);">WELL-BEING</span><span class="dot">・</span><span style="color:var(--gold);">WELFARE</span></p>
     <div class="hero-btns">
@@ -537,7 +541,7 @@ footer{background:#1d2b3a;padding:60px 5% 32px;color:rgba(255,255,255,.7);}
   <div class="container">
     <div class="sec-head fade">
       <span class="en">ABOUT TRY WELL</span>
-      <h2 class="serif">姿勢が変わる。毎日が変わる。<br>人生が変わる。</h2>
+      <h2 class="serif">姿勢が変わる。<br class="mobile-break">毎日が変わる。<br>人生が変わる。</h2>
     </div>
     <p class="about-lead fade">TRY WELL(トライウェル)には、「挑戦(TRY)」を通して、3つの&quot;WELL&quot;を届けたいという想いを込めています。</p>
     <div class="about-three fade">
